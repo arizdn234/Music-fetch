@@ -1,0 +1,80 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.card img {
+    max-width: 100%;
+    display: block;
+}
+
+.card h2 {
+    position: absolute;
+    top: 85%;
+    left: 51%;
+    transform: translate(-60%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0 12px 12px 0;
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.detail-button {
+    position: absolute;
+    top: 10%;
+    border-radius: 12px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 30px;
+    text-align: center;
+}
+
+.detail-button i {
+    display: block;
+    margin: 5px auto;
+}
+
+.card:hover .detail-button {
+    display: block;
+}
