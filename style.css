@@ -13,6 +13,7 @@ body {
     padding: 0;
 }
 
+/* __Swiper Style__ */
 .swiper {
     width: 100%;
     padding-top: 50px;
@@ -31,6 +32,7 @@ body {
     width: 100%;
 }
 
+/* __Card Style__ */
 .card {
     position: relative;
     overflow: hidden;
@@ -79,6 +81,16 @@ body {
     display: block;
 }
 
+/* __Modal Style__ */
+.container-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    position: relative;
+}
+
 .modal {
     display: flex;
     flex-direction: column;
@@ -88,7 +100,7 @@ body {
     padding: 1.3rem;
     min-height: 250px;
     position: absolute;
-    top: 20%;
+    margin-top: 25%;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 15px;
@@ -114,7 +126,7 @@ body {
     margin: 0.4rem 0 0.2rem;
 }
 
-button {
+.flex button {
     cursor: pointer;
     border: none;
     font-weight: 600;
@@ -128,17 +140,12 @@ button {
     color: white;
     border-radius: 5px;
     text-align: center;
-    font-size: 1em;
-}
-
-.btn-open {
-    position: absolute;
-    bottom: 150px;
+    font-size: 1rem;
 }
 
 .btn-close {
     padding: 0.5rem 0.7rem;
-    background: #eee;
+    background: #eeeeee;
     border-radius: 50%;
 }
 
