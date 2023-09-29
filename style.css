@@ -182,3 +182,10 @@ body {
 .hidden {
     display: none;
 }
+
+@media screen and (max-width: 780px) {
+	.modal {
+        width: 340px;
+        margin-top: 740px;
+    }
+}
