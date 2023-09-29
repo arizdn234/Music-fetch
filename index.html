@@ -17,7 +17,7 @@
     <!-- Modal -->
     <div class="container-modal">
         <section class="modal hidden">
-            <div class="flex">
+            <!-- <div class="flex">
                 <button class="btn-close">⨉</button>
             </div>
             <div>
@@ -28,8 +28,9 @@
                 </p>
             </div>
     
-            <input type="email" id="email" placeholder="brendaneich@js.com" />
-            <button class="btn">Submit</button>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="examplemail@mail.com" />
+            <button class="btn">Submit</button> -->
         </section>
     
         <div class="overlay hidden"></div>
@@ -43,9 +44,9 @@
                     <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
                     <h2>Lorem, ipsum dolpisicing elit. Totam, itaque.</h2>
                     <button class="detail-button">
-                        <i class="fa-solid fa-eye" onclick="detil()"></i>
-                        <i class="fa-solid fa-pencil" onclick="edit()"></i>
-                        <i class="fa-solid fa-trash" onclick="hapus()"></i>
+                        <span onclick="detailData()" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
+                        <span onclick="editData()" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
+                        <span onclick="deleteData()" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
                     </button>
                 </div>
             </div>
@@ -54,9 +55,9 @@
                     <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
                     <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, itaque.</h2>
                     <button class="detail-button">
-                        <i class="fa-solid fa-eye"></i>
-                        <i class="fa-solid fa-pencil"></i>
-                        <i class="fa-solid fa-trash"></i>
+                        <span onclick="detailData()" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
+                        <span onclick="editData()" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
+                        <span onclick="deleteData()" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
                     </button>
                 </div>
             </div>
@@ -65,9 +66,9 @@
                     <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
                     <h2>Lorem, ipsum dolor sit amet csicing elit. Totam, itaque.</h2>
                     <button class="detail-button">
-                        <i class="fa-solid fa-eye"></i>
-                        <i class="fa-solid fa-pencil"></i>
-                        <i class="fa-solid fa-trash"></i>
+                        <span onclick="detailData()" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
+                        <span onclick="editData()" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
+                        <span onclick="deleteData()" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
                     </button>
                 </div>
             </div>
