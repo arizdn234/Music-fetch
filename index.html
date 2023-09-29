@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Assignment 3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <!-- Link Swiper's CSS -->
+    <!-- Link Swiper's CSS CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     <!-- Own styles -->
@@ -13,6 +13,26 @@
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <section class="modal hidden">
+        <div class="flex">
+            <button class="btn-close">⨉</button>
+        </div>
+        <div>
+            <h3>Stay in touch</h3>
+            <p>
+                This is a dummy newsletter form so don't bother trying to test it. Not
+                that I expect you to, anyways. :)
+            </p>
+        </div>
+
+        <input type="email" id="email" placeholder="brendaneich@js.com" />
+        <button class="btn">Submit</button>
+    </section>
+
+    <div class="overlay hidden"></div>
+
     <!-- Swiper -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
@@ -21,9 +41,9 @@
                     <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
                     <h2>Lorem, ipsum dolpisicing elit. Totam, itaque.</h2>
                     <button class="detail-button">
-                        <i class="fa-solid fa-eye"></i>
-                        <i class="fa-solid fa-pencil"></i>
-                        <i class="fa-solid fa-trash"></i>
+                        <i class="fa-solid fa-eye" onclick="detil()"></i>
+                        <i class="fa-solid fa-pencil" onclick="edit()"></i>
+                        <i class="fa-solid fa-trash" onclick="hapus()"></i>
                     </button>
                 </div>
             </div>
@@ -53,10 +73,12 @@
         <div class="swiper-pagination"></div>
     </div>
 
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Font Awesome CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- Swiper JS -->
+    <!-- Swiper JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
