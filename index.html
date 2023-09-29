@@ -15,23 +15,25 @@
 <body>
 
     <!-- Modal -->
-    <section class="modal hidden">
-        <div class="flex">
-            <button class="btn-close">⨉</button>
-        </div>
-        <div>
-            <h3>Stay in touch</h3>
-            <p>
-                This is a dummy newsletter form so don't bother trying to test it. Not
-                that I expect you to, anyways. :)
-            </p>
-        </div>
-
-        <input type="email" id="email" placeholder="brendaneich@js.com" />
-        <button class="btn">Submit</button>
-    </section>
-
-    <div class="overlay hidden"></div>
+    <div class="container-modal">
+        <section class="modal hidden">
+            <div class="flex">
+                <button class="btn-close">⨉</button>
+            </div>
+            <div>
+                <h3>Stay in touch</h3>
+                <p>
+                    This is a dummy newsletter form so don't bother trying to test it. Not
+                    that I expect you to, anyways. :)
+                </p>
+            </div>
+    
+            <input type="email" id="email" placeholder="brendaneich@js.com" />
+            <button class="btn">Submit</button>
+        </section>
+    
+        <div class="overlay hidden"></div>
+    </div>
 
     <!-- Swiper -->
     <div class="swiper mySwiper">
@@ -80,6 +82,9 @@
 
     <!-- Swiper JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Modal function JS -->
+    <script src="js/modal.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
