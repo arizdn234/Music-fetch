@@ -5,13 +5,22 @@ body {
 }
 
 body {
-    background: #eee;
+	background-color: rgb(235, 235, 235);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
     margin: 0;
     padding: 0;
 }
+
+.container {
+	width: 90%;
+	min-width: 50%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+}
+
 
 /* __Swiper Style__ */
 .swiper {
@@ -158,6 +167,7 @@ body {
     border-radius: 5px;
     text-align: center;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .btn-close {
