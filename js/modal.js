@@ -66,3 +66,15 @@ overlay.addEventListener("click", () => {
 	modal.classList.add("hidden");
 	overlay.classList.add("hidden");
 });
+
+function hideContent() {
+	const x = document.getElementById("content");
+	// console.log();
+	if (x.style.display === "none") {
+		x.style.display = "block";
+		document.getElementById('hider').innerText = 'Hide'
+	} else {
+		document.getElementById('hider').innerText = 'Show'
+		x.style.display = "none";
+	}
+}
