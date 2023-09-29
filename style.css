@@ -98,13 +98,23 @@ body {
     gap: 0.4rem;
     width: 450px;
     padding: 1.3rem;
-    min-height: 250px;
+    min-height: 100px;
     position: absolute;
-    margin-top: 25%;
+    margin-top: 50%;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 15px;
     z-index: 6;
+}
+
+.modal h1 {
+    font-size: 2rem;
+    align-self: center;
+    margin: 0;
+}
+
+.modal h2 {
+    margin: 0 0 1rem 0;
 }
 
 .modal .flex {
@@ -118,6 +128,9 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 0.9em;
+    display: block;
+    min-width: 92%;
+    margin-bottom: .5rem;
 }
 
 .modal p {
@@ -130,6 +143,10 @@ body {
     cursor: pointer;
     border: none;
     font-weight: 600;
+    position: absolute;
+    margin: 1rem;
+    right: 0;
+    top: 0;
 }
 
 .btn {
