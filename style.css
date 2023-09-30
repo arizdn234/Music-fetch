@@ -193,6 +193,17 @@ body {
     display: none;
 }
 
+/* Embed JSON style */
+#show-json-from-git {
+    background: black;
+    color: white;
+    overflow: scroll;
+    max-height: 37rem;
+    padding: 1rem;
+    font-weight: 200;
+}
+
+/* Responsive query */
 @media screen and (max-width: 780px) {
 	.modal {
         width: 340px;
