@@ -134,12 +134,14 @@ body {
     left: 40%;
     border: none;
     border-radius: 50%;
+    max-width: 5rem;
     min-width: 5rem;
-    min-height: 5rem;
+    height: 5rem;
     font-size: 40px;
-    padding: 1rem;
+    padding-left: .6rem;
     background: rgba(0, 0, 0, 0.5);
     color: white;
+    cursor: pointer;
 }
 
 /* __Modal Style__ */
@@ -268,6 +270,7 @@ body {
     font-weight: bolder;
     border-radius: 12px;
     align-self: center;
+    cursor: pointer;
 }
 
 /* Responsive query */
@@ -275,5 +278,8 @@ body {
 	.modal {
         width: 340px;
         margin-top: 740px;
+    }
+    .judul {
+        font-size: 1.21rem;
     }
 }
