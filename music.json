@@ -7,8 +7,8 @@
             "year": 2020,
             "genre": "Pop",
             "duration": "2:53",
-            "artwork": "https://samplesongs.netlify.app/album-arts/death-bed.jpg",
-            "url": "https://samplesongs.netlify.app/Death%20Bed.mp3",
+            "artwork": "album-arts/death-bed.jpg",
+            "url": "music-data/Death Bed.mp3",
             "id": "1",
             "lyrics": "Here's to the ones that we got\nCheers to the wish you were here..."
         },
@@ -19,8 +19,8 @@
             "year": 2018,
             "genre": "Alternative",
             "duration": "4:20",
-            "artwork": "https://samplesongs.netlify.app/album-arts/bad-liar.jpg",
-            "url": "https://samplesongs.netlify.app/Bad%20Liar.mp3",
+            "artwork": "album-arts/bad-liar.jpg",
+            "url": "music-data/Bad%20Liar.mp3",
             "id": "2",
             "lyrics": "Oh, hush, my dear, it's been a difficult year..."
         },
@@ -31,8 +31,8 @@
             "year": 2015,
             "genre": "Electronic",
             "duration": "3:32",
-            "artwork": "https://samplesongs.netlify.app/album-arts/faded.jpg",
-            "url": "https://samplesongs.netlify.app/Faded.mp3",
+            "artwork": "album-arts/faded.jpg",
+            "url": "music-data/Faded.mp3",
             "id": "3",
             "lyrics": "You were the shadow to my light..."
         },
@@ -43,8 +43,8 @@
             "year": 2019,
             "genre": "Pop",
             "duration": "3:06",
-            "artwork": "https://samplesongs.netlify.app/album-arts/hate-me.jpg",
-            "url": "https://samplesongs.netlify.app/Hate%20Me.mp3",
+            "artwork": "album-arts/hate-me.jpg",
+            "url": "music-data/Hate%20Me.mp3",
             "id": "4",
             "lyrics": "Hate me, hate me, still tryna replace me..."
         },
@@ -55,8 +55,8 @@
             "year": 2018,
             "genre": "Pop",
             "duration": "3:42",
-            "artwork": "https://samplesongs.netlify.app/album-arts/solo.jpg",
-            "url": "https://samplesongs.netlify.app/Solo.mp3",
+            "artwork": "album-arts/solo.jpg",
+            "url": "music-data/Solo.mp3",
             "id": "5",
             "lyrics": "It's solo, solo, everybody..."
         },
@@ -67,8 +67,8 @@
             "year": 2019,
             "genre": "Pop",
             "duration": "3:21",
-            "artwork": "https://samplesongs.netlify.app/album-arts/without-me.jpg",
-            "url": "https://samplesongs.netlify.app/Without%20Me.mp3",
+            "artwork": "album-arts/without-me.jpg",
+            "url": "music-data/Without%20Me.mp3",
             "id": "6",
             "lyrics": "Found you when your heart was broke..."
         }
