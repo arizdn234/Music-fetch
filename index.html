@@ -37,35 +37,18 @@
         <div class="overlay hidden"></div>
     </div>
 
+    <!-- Web Title -->
+    <div class="container">
+        <h1 class="judul">Begadang jangan begadang, kalaw tiada artinya.. <br>Begadang boleh saja, kalaw besok deadlinenya.. :v</h1>
+    </div>
+
     <!-- Swiper -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="card">
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                    <h2>Lorem, ipsum dolpisicing elit. Totam, itaque.</h2>
-                    <button class="detail-button">
-                        <span onclick="detailData()" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
-                        <span onclick="editData()" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
-                        <span onclick="deleteData()" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
-                    </button>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card">
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                    <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, itaque.</h2>
-                    <button class="detail-button">
-                        <span onclick="detailData()" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
-                        <span onclick="editData()" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
-                        <span onclick="deleteData()" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
-                    </button>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card">
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                    <h2>Lorem, ipsum dolor sit amet csicing elit. Totam, itaque.</h2>
+                    <img src="https://swiperjs.com/demos/images/nature-2.jpg"/>
+                    <h2>Dummy Card</h2>
                     <button class="detail-button">
                         <span onclick="detailData()" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
                         <span onclick="editData()" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
@@ -79,10 +62,8 @@
 
     <!-- Origin JSON data  -->
     <div class="container">
-        <h1>JSON Data Sample</h1>
-        <a href="https://github.com/arizdn234/datasets/blob/main/org-3-temporary/music.json" target="_blank" rel="noopener noreferrer">arizdn234
-            /
-            datasets</a>
+        <h1 class="judul">JSON Data Sample</h1>
+        <a class="json-link" href="https://raw.githubusercontent.com/arizdn234/datasets/main/org-3-temporary/music.json" target="_blank" rel="noopener noreferrer">arizdn234 / datasets</a>
         <button onclick="hideContent()" id="hider">Show &uarr;</button>
         <div id="content" style="display: none;">
             <pre id="show-json-from-git"></pre>
@@ -101,7 +82,10 @@
     <script src="js/modal.js"></script>
 
     <!-- Fetch API -->
-    <script src="fetch.js"></script>
+    <script src="js/fetch.js"></script>
+
+    <!-- Music Player -->
+    <script src="js/player.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
