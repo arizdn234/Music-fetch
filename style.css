@@ -1,14 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
 html,
 body {
     position: relative;
-    height: 100%;
 }
 
 body {
-	background-color: rgb(235, 235, 235);
+	background: linear-gradient(to right bottom, rgb(0, 20, 26) 0%, rgb(0, 73, 92) 100%);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
     margin: 0;
     padding: 0;
 }
@@ -19,6 +19,20 @@ body {
 	margin: auto;
 	display: flex;
 	flex-direction: column;
+}
+
+.judul {
+    font-size: 2rem;
+	background: linear-gradient(to right, #30CFD0 0%, #821cff 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	padding: 0.8rem 1.7rem;
+    border-left: 3px solid #30CFD0;
+    border-right: 3px solid #821cff;
+    border-radius: 13px;
+	margin: 1rem;
+    align-self: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -43,9 +57,10 @@ body {
 
 /* __Card Style__ */
 .card {
-    position: relative;
+    position: flex;
     overflow: hidden;
     border-radius: 12px;
+    border: 1px solid #5649ff;
 }
 
 .card img {
@@ -55,14 +70,37 @@ body {
 
 .card h2 {
     position: absolute;
-    top: 85%;
-    left: 51%;
-    transform: translate(-60%, -50%);
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 0 12px 12px 0;
+    top: 82%;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 35px;
+    border-radius: 0 0 22px 0;
     padding: 10px;
-    width: 80%;
+    border-bottom: 1px solid aqua;
+    width: fit-content;
     margin: 0 auto;
+    font-family: 'Sedgwick Ave Display', cursive;
+    color: white;
+}
+
+.card p {
+    position: absolute;
+    top: 70%;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 24px;
+    border-radius: 0 0 12px 0;
+    border-bottom: 1px solid aqua;
+    padding: 8px;
+    width: fit-content;
+    margin: 0 auto;
+    font-family: 'Sedgwick Ave Display', cursive;
+    color: white;
+}
+
+.card audio {
+    display: none;
+    position: absolute;
+    top: 93%;
+    width: 25rem;
 }
 
 .detail-button {
@@ -88,6 +126,20 @@ body {
 
 .card:hover .detail-button {
     display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    border: none;
+    border-radius: 50%;
+    min-width: 5rem;
+    min-height: 5rem;
+    font-size: 40px;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 /* __Modal Style__ */
@@ -201,6 +253,21 @@ body {
     max-height: 37rem;
     padding: 1rem;
     font-weight: 200;
+}
+
+.json-link {
+    color: #30CFD0;
+    align-self: center;
+}
+
+#hider {
+    border: none;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background: #30CFD0;
+    font-weight: bolder;
+    border-radius: 12px;
+    align-self: center;
 }
 
 /* Responsive query */
