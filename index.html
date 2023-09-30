@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Assignment 3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    
     <!-- Link Swiper's CSS CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
@@ -76,12 +77,15 @@
         <div class="swiper-pagination"></div>
     </div>
 
+    <!-- Origin JSON data  -->
     <div class="container">
-        <h1>JSON Data</h1>
-        <a href="https://gist.github.com/saniyusuf/406b843afdfb9c6a86e25753fe2761f4" target="_blank" rel="noopener noreferrer">saniyusuf/Film.JSON</a>
-        <button onclick="hideContent()" id="hider">Show</button>
+        <h1>JSON Data Sample</h1>
+        <a href="https://github.com/arizdn234/datasets/blob/main/org-3-temporary/music.json" target="_blank" rel="noopener noreferrer">arizdn234
+            /
+            datasets</a>
+        <button onclick="hideContent()" id="hider">Show &uarr;</button>
         <div id="content" style="display: none;">
-            <script src="https://gist.github.com/saniyusuf/406b843afdfb9c6a86e25753fe2761f4.js"></script>
+            <pre id="show-json-from-git"></pre>
         </div>
     </div>
 
@@ -95,6 +99,9 @@
 
     <!-- Modal function JS -->
     <script src="js/modal.js"></script>
+
+    <!-- Fetch API -->
+    <script src="fetch.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
