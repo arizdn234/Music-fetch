@@ -1,6 +1,8 @@
+// Modal init
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
+// Detail Button Function
 function detailData() {
 	const format = `
 		<h1>Detail</h1>
@@ -19,6 +21,7 @@ function detailData() {
 	overlay.classList.remove("hidden");
 }
 
+// Edit Button Function
 function editData() {
 	const format = `
 		<h1>Edit Data</h1>
@@ -42,6 +45,7 @@ function editData() {
 	overlay.classList.remove("hidden");
 }
 
+// Delete Button Function
 function deleteData() {
 	const format = `
 		<div class="flex">
@@ -57,24 +61,26 @@ function deleteData() {
 	overlay.classList.remove("hidden");
 }
 
+// Modal Close Button Function
 function closeModal() {
 	modal.classList.add("hidden");
 	overlay.classList.add("hidden");
 }
 
+// Close Modal with outer area of Modal
 overlay.addEventListener("click", () => {
 	modal.classList.add("hidden");
 	overlay.classList.add("hidden");
 });
 
+// Toggler Button Function
 function hideContent() {
 	const x = document.getElementById("content");
-	// console.log();
 	if (x.style.display === "none") {
 		x.style.display = "block";
-		document.getElementById('hider').innerText = 'Hide'
+		document.getElementById('hider').innerHTML = 'Hide &uarr;'
 	} else {
-		document.getElementById('hider').innerText = 'Show'
+		document.getElementById('hider').innerHTML = 'Show &darr;' 
 		x.style.display = "none";
 	}
 }
