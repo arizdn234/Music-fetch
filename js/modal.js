@@ -3,22 +3,59 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
 // Detail Button Function
-function detailData() {
-	const format = `
-		<h1>Detail</h1>
-		<div class="flex">
-			<button class="btn-close" onclick="closeModal()">⨉</button>
-		</div>
-		<div>
-			<h2>Judul data</h2>
-			<p>Key: Value</p>
-			<p>Key: Value</p>
-			<p>Key: Value</p>
-		</div>
-	`
-	modal.innerHTML = format
-	modal.classList.remove("hidden");
-	overlay.classList.remove("hidden");
+function detailData(id) {
+
+	fetchById(id)
+		.then((data) => {
+			const format = `
+				<h1>Detail</h1>
+				<div class="flex">
+					<button class="btn-close" onclick="closeModal()">⨉</button>
+				</div>
+				<div>
+					<h2>${data.title}</h2>
+					<table>
+						<tr>
+							<td>Artis</td>
+							<td>:</td>
+							<td>${data.artist}</td>
+						</tr>
+						<tr>
+							<td>Album</td>
+							<td>:</td>
+							<td>${data.album}</td>
+						</tr>
+						<tr>
+							<td>Tahun rilis</td>
+							<td>:</td>
+							<td>${data.year}</td>
+						</tr>
+						<tr>
+							<td>Genre</td>
+							<td>:</td>
+							<td>${data.genre}</td>
+						</tr>
+						<tr>
+							<td>Durasi lagu</td>
+							<td>:</td>
+							<td>${data.duration}</td>
+						</tr>
+						<tr>
+							<td>Lirik</td>
+							<td>:</td>
+							<td>${data.lyrics}</td>
+						</tr>
+					</table>
+				</div>
+			`
+
+			modal.innerHTML = format
+			modal.classList.remove("hidden");
+			overlay.classList.remove("hidden");
+		})
+		.catch((e) => {
+			console.error('Gagal saat menampilkan detail lagu:', e)
+		})
 }
 
 // Edit Button Function
