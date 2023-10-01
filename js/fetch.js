@@ -10,6 +10,7 @@ fetch(urlEmbed)
 // JSON fetch music.json
 const url = 'http://localhost:3000/songs';
 
+// GET All Method
 fetch(url)
 	.then(response => response.json())
 	.then(data => {
@@ -26,7 +27,7 @@ fetch(url)
                         <source src="${data[i].url}" type="audio/mpeg">
                     </audio>
 					<button class="detail-button">
-						<span onclick="detailData()" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
+						<span onclick="detailData(${data[i].id})" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
 						<span onclick="editData()" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
 						<span onclick="deleteData()" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
 					</button>
@@ -44,3 +45,18 @@ fetch(url)
 		}
 	})
 	.catch(error => console.error('Gagal melakukan permintaan GET:', error));
+
+// GET by ID Method (triger on Modal)
+async function fetchById(id) {
+	try {
+		const response = await fetch(`http://localhost:3000/songs/${id}`)
+		if (!response.ok) {
+			throw new Error('Gagal untuk fetch data')
+		}
+		const data = await response.json();
+    	return data;
+	} catch (e) {
+		console.error('Gagal untuk fetch song by ID:', e);
+    	throw e;
+	}
+}
