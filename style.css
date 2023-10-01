@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 html,
 body {
@@ -156,18 +156,19 @@ body {
 
 .modal {
     display: flex;
+    position: fixed;
     flex-direction: column;
     justify-content: center;
     gap: 0.4rem;
     width: 450px;
     padding: 1.3rem;
     min-height: 100px;
-    position: absolute;
     margin-top: 50%;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 15px;
     z-index: 6;
+    font-family: 'Poppins', sans-serif;
 }
 
 .modal h1 {
@@ -177,7 +178,8 @@ body {
 }
 
 .modal h2 {
-    margin: 0 0 1rem 0;
+    margin: 0;
+    padding-left: .5rem;
 }
 
 .modal .flex {
@@ -200,6 +202,18 @@ body {
     font-size: 0.9rem;
     color: #777;
     margin: 0.4rem 0 0.2rem;
+}
+
+.modal table {
+    width: 100%;
+    border: 1px solid #222;
+    /* border-top: 1px solid #222; */
+    padding-left: .5rem;
+    border-radius: 11px;
+}
+
+.modal table td {
+    padding: .3rem;
 }
 
 .flex button {
