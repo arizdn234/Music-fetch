@@ -60,6 +60,35 @@
         <div class="swiper-pagination"></div>
     </div>
 
+    <!-- Form data baru -->
+    <div class="modal-grid">
+        <h1 class="judul">Buat Data Baru</h1>
+        <button onclick="hideForm()" id="inputToggle">Buka form input</button>
+        <form  onsubmit="createNew(event)" id="form-input" style="display: none;">
+            <div>
+                <label for="title">Judul lagu</label>
+                <input type="text" id="title" name="title" placeholder="Masukkan judul lagu" required/>
+                <label for="artist">Nama penyanyi</label>
+                <input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi" required/>
+                <label for="album">Album lagu</label>
+                <input type="text" id="album" name="album" placeholder="Masukkan nama album" required/>
+                <label for="year">Tahun rilis</label>
+                <input type="number" id="year" name="year" placeholder="Masukkan tahun rilis" required/>
+            </div>
+            <div>
+                <label for="genre">Genre musik</label>
+                <input type="text" id="genre" name="genre" placeholder="Masukkan genre musik" required/>
+                <label for="lyrics">Lirik lagu</label>
+                <input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu" required/>
+                <label for="artwork"><i class="fa-solid fa-folder"></i> Pilih file Artwork</label>
+                <input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" required/>
+                <label for="song"><i class="fa-solid fa-folder"></i> Pilih file Lagu</label>
+                <input type="file" id="song" name="song" accept=".mp3" required/>
+            </div>
+            <button id="saveNew" type="submit">Simpan data</button>
+        </form>
+    </div>
+
     <!-- Origin JSON data  -->
     <div class="container">
         <h1 class="judul">JSON Data Sample</h1>
