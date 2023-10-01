@@ -154,13 +154,6 @@ body {
     position: relative;
 }
 
-.modal-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    width: fit-content;
-}
-
 .modal {
     display: flex;
     position: fixed;
@@ -302,6 +295,71 @@ input[type=file] {
     cursor: pointer;
 }
 
+#inputToggle {
+    border: none;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background: #30CFD0;
+    font-weight: bolder;
+    border-radius: 12px;
+    align-self: center;
+    cursor: pointer;
+}
+
+/* Form input style */
+.modal-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#form-input {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin: 1rem;
+    border: 1px solid aqua;
+    color: #30CFD0;
+    padding: 1rem;
+    width: fit-content;
+    border-radius: 15px;
+}
+
+#form-input input {
+    width: 350px;
+    padding: 1rem;
+    margin-bottom: .5rem;
+    border: none;
+    border-radius: 5px;
+    display: block;
+}
+
+#form-input input[type=file] {
+    display: none;
+}
+
+#form-input label[for='artwork'],
+#form-input label[for='song'] {
+    border: 1px dashed aqua;
+    padding: 1rem;
+    margin-bottom: .7rem;
+    display: block;
+    border-radius: 5px;
+}
+
+#form-input #saveNew {
+    border: none;
+    padding: .8rem;
+    width: 100%;
+    border-radius: 5px;
+    background: #30CFD0;
+    color: rgb(0, 20, 26);
+    font-weight: bold;
+    font-size: 18px;
+}
+
 /* Responsive query */
 @media screen and (max-width: 780px) {
 	.modal {
@@ -311,12 +369,5 @@ input[type=file] {
     }
     .judul {
         font-size: 1.21rem;
-    }
-    .modal-grid {
-        display: flex;
-        flex-direction: column;
-        width: 20rem;
-        right: 10%;
-        position: fixed;
     }
 }
