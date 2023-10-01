@@ -199,13 +199,18 @@ body {
 .modal input {
     padding: 0.7rem 1rem;
     border: 1px solid #ddd;
-    background: #ffffff;
+    background: #e4e4e4;
     border-radius: 5px;
     font-size: 0.9em;
     display: inline-block;
     color: #070707;
     min-width: 92%;
     margin-bottom: .5rem;
+}
+
+input[type=file] {
+    height: 1rem;
+    background: #e4e4e4;
 }
 
 .modal p {
@@ -243,6 +248,8 @@ body {
     text-align: center;
     font-size: 1rem;
     cursor: pointer;
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 2;
 }
 
 .btn-close {
