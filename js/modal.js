@@ -1,8 +1,8 @@
-// Modal init
+// __________________________Modal init__________________________
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
-// Detail Button Function
+// __________________________Detail Button Function__________________________
 function detailData(id) {
 
 	fetchById(id)
@@ -59,7 +59,7 @@ function detailData(id) {
 		})
 }
 
-// Edit Button Function
+// __________________________Edit Button Function__________________________
 function editData() {
 	const format = `
 		<h1>Edit Data</h1>
@@ -83,7 +83,7 @@ function editData() {
 	overlay.classList.remove("hidden");
 }
 
-// Delete Button Function
+// __________________________Delete Button Function__________________________
 function deleteData() {
 	const format = `
 		<div class="flex">
@@ -101,7 +101,7 @@ function deleteData() {
 	overlay.classList.remove("hidden");
 }
 
-// Message pop up
+// __________________________Message pop up__________________________
 function msgPopup(msg) {
 	const format = `
 		<div class="flex">
@@ -119,7 +119,7 @@ function msgPopup(msg) {
 	overlay.classList.remove("hidden");
 }
 
-// Create New modal trigger (by press 'ctrl + 5' on keyboard)
+// __________________________Create New modal trigger (by press 'ctrl + 5' on keyboard)__________________________
 document.body.addEventListener('keydown', (event) => {
 	const isCtrlPressed = event.ctrlKey;
 	if (isCtrlPressed && event.key === '5') {
@@ -159,19 +159,19 @@ document.body.addEventListener('keydown', (event) => {
 	}
 })
 
-// Modal Close Button Function
+// __________________________Modal Close Button Function__________________________
 function closeModal() {
 	modal.classList.add("hidden");
 	overlay.classList.add("hidden");
 }
 
-// Close Modal with outer area of Modal
+// __________________________Close Modal with outer area of Modal__________________________
 overlay.addEventListener("click", () => {
 	modal.classList.add("hidden");
 	overlay.classList.add("hidden");
 });
 
-// Toggler Button Function
+// __________________________Toggler Button Function__________________________
 function hideContent() {
 	const x = document.getElementById("content");
 	if (x.style.display === "none") {
