@@ -20,7 +20,7 @@
             "genre": "Alternative",
             "duration": "4:20",
             "artwork": "album-arts/bad-liar.jpg",
-            "url": "music-data/Bad%20Liar.mp3",
+            "url": "music-data/Bad Liar.mp3",
             "id": "2",
             "lyrics": "Oh, hush, my dear, it's been a difficult year..."
         },
@@ -44,7 +44,7 @@
             "genre": "Pop",
             "duration": "3:06",
             "artwork": "album-arts/hate-me.jpg",
-            "url": "music-data/Hate%20Me.mp3",
+            "url": "music-data/Hate Me.mp3",
             "id": "4",
             "lyrics": "Hate me, hate me, still tryna replace me..."
         },
@@ -68,7 +68,7 @@
             "genre": "Pop",
             "duration": "3:21",
             "artwork": "album-arts/without-me.jpg",
-            "url": "music-data/Without%20Me.mp3",
+            "url": "music-data/Without Me.mp3",
             "id": "6",
             "lyrics": "Found you when your heart was broke..."
         }
