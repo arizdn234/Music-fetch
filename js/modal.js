@@ -120,44 +120,16 @@ function msgPopup(msg) {
 }
 
 // __________________________Create New modal trigger (by press 'ctrl + 5' on keyboard)__________________________
-document.body.addEventListener('keydown', (event) => {
-	const isCtrlPressed = event.ctrlKey;
-	if (isCtrlPressed && event.key === '5') {
-		const format = `
-			<div class="modal-grid">
-				<h1>Buat Data Baru</h1>
-				<div class="flex">
-					<button class="btn-close" onclick="closeModal()">⨉</button>
-				</div>
-				<div>
-					<label for="title">Judul lagu</label>
-					<input type="text" id="title" name="title" placeholder="Masukkan judul lagu"/>
-					<label for="artist">Nama penyanyi</label>
-					<input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi"/>
-					<label for="album">Album lagu</label>
-					<input type="text" id="album" name="album" placeholder="Masukkan nama album"/>
-					<label for="year">Tahun rilis</label>
-					<input type="number" id="year" name="year" placeholder="Masukkan tahun rilis"/>
-				</div>
-				<div>
-					<label for="genre">Genre musik</label>
-					<input type="text" id="genre" name="genre" placeholder="Masukkan genre musik"/>
-					<label for="artwork">Artwork</label>
-					<input type="file" id="artwork" name="artwork"/>
-					<label for="song">Data lagu</label>
-					<input type="file" id="song" name="song"/>
-					<label for="lyrics">Lirik lagu</label>
-					<input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu"/>
-				</div>
-				<button class="btn" id="saveNew">Simpan data</button>
-			</div>
-		`
-		modal.innerHTML = format
-		modal.classList.remove("hidden");
-		modal.style.width = '49rem'
-		overlay.classList.remove("hidden");
+function hideForm() {
+	const form = document.getElementById('form-input')
+	if (form.style.display == 'none') {
+		form.style.display = 'flex'
+		document.getElementById('inputToggle').innerText = 'Tutup form input'
+	} else {
+		form.style.display = 'none'
+		document.getElementById('inputToggle').innerText = 'Buka form input'
 	}
-})
+}
 
 // __________________________Modal Close Button Function__________________________
 function closeModal() {
