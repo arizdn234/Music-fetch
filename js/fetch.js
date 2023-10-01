@@ -5,7 +5,10 @@ fetch(urlEmbed)
 	.then((out) => {
 		document.getElementById("show-json-from-git").innerText = out
 	})
-	.catch(err => { throw err });
+	.catch((err) => {
+		msgPopup(err)
+		throw err 
+	});
 
 // JSON fetch music.json
 const url = 'http://localhost:3000/songs';
@@ -44,9 +47,13 @@ fetch(url)
 			document.querySelector('.swiper-wrapper').appendChild(div);
 		}
 	})
-	.catch(error => console.error('Gagal melakukan permintaan GET:', error));
+	.catch((error) => {
+		const msg = `Gagal melakukan permintaan GET: ${error} </br></br>Apakah server sudah jalan bang?`
+		console.error(msg);
+		msgPopup(msg)
+	})
 
-// GET by ID Method (triger on Modal)
+// GET by ID Method (trigger on Modal)
 async function fetchById(id) {
 	try {
 		const response = await fetch(`http://localhost:3000/songs/${id}`)
@@ -56,7 +63,9 @@ async function fetchById(id) {
 		const data = await response.json();
     	return data;
 	} catch (e) {
-		console.error('Gagal untuk fetch song by ID:', e);
+		const msg = `Gagal untuk fetch song by ID: ${e}`
+		console.error(msg);
+		msgPopup(msg)
     	throw e;
 	}
 }
