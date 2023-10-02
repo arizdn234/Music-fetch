@@ -18,32 +18,32 @@ function detailData(id) {
 						<tr>
 							<td>Artis</td>
 							<td>:</td>
-							<td>${data.artist}</td>
+							<td>${data.artist || 'Tidak diketahui'}</td>
 						</tr>
 						<tr>
 							<td>Album</td>
 							<td>:</td>
-							<td>${data.album}</td>
+							<td>${data.album || 'Tidak diketahui'}</td>
 						</tr>
 						<tr>
 							<td>Tahun rilis</td>
 							<td>:</td>
-							<td>${data.year}</td>
+							<td>${data.year || 'Tidak diketahui'}</td>
 						</tr>
 						<tr>
 							<td>Genre</td>
 							<td>:</td>
-							<td>${data.genre}</td>
+							<td>${data.genre || 'Tidak diketahui'}</td>
 						</tr>
 						<tr>
 							<td>Durasi lagu</td>
 							<td>:</td>
-							<td>${data.duration}</td>
+							<td>${data.duration || 'Tidak diketahui'}</td>
 						</tr>
 						<tr>
 							<td>Lirik</td>
 							<td>:</td>
-							<td>${data.lyrics}</td>
+							<td>${data.lyrics || 'Tidak diketahui'}</td>
 						</tr>
 					</table>
 				</div>
@@ -60,45 +60,58 @@ function detailData(id) {
 }
 
 // __________________________Edit Button Function__________________________
-function editData() {
-	const format = `
-		<h1>Edit Data</h1>
-		<div class="flex">
-			<button class="btn-close" onclick="closeModal()">⨉</button>
-		</div>
-		<div>
-			<h2>Judul data</h2>
-
-			<label for="teks">Data teks</label>
-			<input type="text" id="teks" name="teks" value="Sometext" />
-			<label for="angka">Data angka</label>
-			<input type="number" id="angka" name="angka" value="12" />
-			<label for="email">Data Email</label>
-			<input type="email" id="email" name="email" value="examplemail@mail.com" />
-		</div>
-		<button class="btn">Simpan</button>
-	`
-	modal.innerHTML = format
-	modal.classList.remove("hidden");
-	overlay.classList.remove("hidden");
+function editData(id) {
+	fetchById(id)
+	.then((data) => {
+		console.log(data);
+		const format = `
+			<h1>Edit Data</h1>
+			<div class="flex">
+				<button class="btn-close" onclick="closeModal()">⨉</button>
+			</div>
+			<div>
+				<h2>Judul data</h2>
+	
+				<label for="teks">Data teks</label>
+				<input type="text" id="teks" name="teks" value="Sometext" />
+				<label for="angka">Data angka</label>
+				<input type="number" id="angka" name="angka" value="12" />
+				<label for="email">Data Email</label>
+				<input type="email" id="email" name="email" value="examplemail@mail.com" />
+			</div>
+			<button class="btn">Simpan</button>
+		`
+		modal.innerHTML = format
+		modal.classList.remove("hidden");
+		overlay.classList.remove("hidden");
+	})
+	.catch((e) => {
+		console.error('Gagal saat mengambil data lagu:', e)
+	})
 }
 
 // __________________________Delete Button Function__________________________
-function deleteData() {
-	const format = `
-		<div class="flex">
-			<button class="btn-close" onclick="closeModal()">⨉</button>
-		</div>
-		<div>
-
-			<h2>Yakin ingin menghapus?</h2>
-		</div>
-		<button class="btn">Hapus</button>
-	`
-	modal.innerHTML = format
-	modal.style.width = '384px'
-	modal.classList.remove("hidden");
-	overlay.classList.remove("hidden");
+function deleteData(id) {
+	fetchById(id)
+	.then((data) => {
+		console.log(data);
+		const format = `
+			<div class="flex">
+				<button class="btn-close" onclick="closeModal()">⨉</button>
+			</div>
+			<div>
+				<h2>Yakin ingin menghapus?</h2>
+			</div>
+			<button class="btn" onclick="deleteByID(${id})">Hapus</button>
+		`
+		modal.innerHTML = format
+		modal.style.width = '384px'
+		modal.classList.remove("hidden");
+		overlay.classList.remove("hidden");
+	})
+	.catch((e) => {
+		console.error('Gagal saat mengambil data lagu:', e)
+	})
 }
 
 // __________________________Message pop up__________________________
@@ -119,8 +132,8 @@ function msgPopup(msg) {
 	overlay.classList.remove("hidden");
 }
 
-// __________________________Create New modal trigger (by press 'ctrl + 5' on keyboard)__________________________
-function hideForm() {
+// __________________________Create New__________________________
+function hideForm() { 
 	const form = document.getElementById('form-input')
 	if (form.style.display == 'none') {
 		form.style.display = 'flex'
@@ -129,6 +142,13 @@ function hideForm() {
 		form.style.display = 'none'
 		document.getElementById('inputToggle').innerText = 'Buka form input'
 	}
+}
+
+// 
+function displayFileName(nameID, target) {
+	const fileName = document.getElementById(nameID).files[0]
+	// console.log(fileName.name);
+	document.querySelector(`.${target}`).innerHTML = fileName.name
 }
 
 // __________________________Modal Close Button Function__________________________
