@@ -68,8 +68,8 @@
             <div>
                 <label for="title">Judul lagu</label>
                 <input type="text" id="title" name="title" placeholder="Masukkan judul lagu" required/>
-                <label for="artist">Nama penyanyi</label>
-                <input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi" required/>
+                <label for="artist">Nama penyanyi/band</label>
+                <input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi/band" required/>
                 <label for="album">Album lagu</label>
                 <input type="text" id="album" name="album" placeholder="Masukkan nama album" required/>
                 <label for="year">Tahun rilis</label>
@@ -83,7 +83,7 @@
                 <label for="artwork" class="artDis"><i class="fa-solid fa-folder"></i> Pilih file Artwork</label>
                 <input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" onchange="displayFileName('artwork', 'artDis')" required/>
                 <label for="song" class="songDis"><i class="fa-solid fa-folder"></i> Pilih file Lagu</label>
-                <input type="file" id="song" name="song" accept=".mp3" onchange="displayFileName('song', 'songDis')" required/>
+                <input type="file" id="song" name="song" accept=".mp3, .m4a" onchange="displayFileName('song', 'songDis')" required/>
             </div>
             <button id="saveNew" type="submit"  onclick="createNew(event)">Simpan data</button>
         </form>
