@@ -1,4 +1,4 @@
-// Fetch raw git
+// __________________________Fetch raw git__________________________
 const urlEmbed = 'https://raw.githubusercontent.com/arizdn234/datasets/main/org-3-temporary/music.json'
 fetch(urlEmbed)
 	.then(res => res.text())
@@ -10,10 +10,10 @@ fetch(urlEmbed)
 		throw err 
 	});
 
-// JSON fetch music.json
+// __________________________JSON fetch music.json__________________________
 const url = 'http://localhost:3000/songs';
 
-// GET All Method
+// __________________________GET All Method__________________________
 fetch(url)
 	.then(response => response.json())
 	.then(data => {
@@ -53,7 +53,7 @@ fetch(url)
 		msgPopup(msg)
 	})
 
-// GET by ID Method (trigger on Modal)
+// __________________________GET by ID Method (trigger on Modal)__________________________
 async function fetchById(id) {
 	try {
 		const response = await fetch(`http://localhost:3000/songs/${id}`)
@@ -70,7 +70,7 @@ async function fetchById(id) {
 	}
 }
 
-// POST Method
+// __________________________POST Method__________________________
 async function createNew(event) {
     event.preventDefault();
 
@@ -122,7 +122,52 @@ async function createNew(event) {
 	
 }
 
-// DELETE Method
+// __________________________Update/PUT Method__________________________
+async function updateByID(id) {
+	const title = document.getElementById('title').innerText;
+    const artist = document.getElementById('artist').value;
+    const album = document.getElementById('album').value;
+    const year = document.getElementById('year').value;
+    const genre = document.getElementById('genre').value;
+    const duration = document.getElementById('duration').value;
+    const lyrics = document.getElementById('lyrics').value;
+
+    const jsonData = {
+        title: title,
+        artist: artist,
+        album: album,
+        year: year,
+        genre: genre,
+		duration: duration,
+        lyrics: lyrics,
+    };
+	// console.log(jsonData);
+
+	try {
+        const response = await fetch(`${url}/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(jsonData),
+        });
+
+        if (!response.ok) {
+            throw new Error('Gagal mengirim permintaan PUT ke server.');
+        }
+
+		const msg = `Data dengan ID ${id} telah diubah`
+        console.log(msg);
+		msgPopup(msg)
+
+    } catch (error) {
+		const msg = `Terjadi kesalahan saat menghapus data: ${error}`
+        console.error(msg);
+		msgPopup(msg)
+    }
+}
+
+// __________________________DELETE Method__________________________
 async function deleteByID(id) {
     try {
         const response = await fetch(`${url}/${id}`, {
@@ -133,13 +178,11 @@ async function deleteByID(id) {
             throw new Error('Gagal mengirim permintaan DELETE ke server.');
         }
 
-        // Assuming the deletion was successful, you can update the UI or perform other actions as needed.
 		const msg = `Data dengan ID ${id} telah dihapus`
         console.log(msg);
+        closeModal();
 		msgPopup(msg)
 
-        // Close the modal
-        closeModal();
     } catch (error) {
 		const msg = `Terjadi kesalahan saat menghapus data: ${error}`
         console.error(msg);
