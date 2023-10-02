@@ -4,7 +4,6 @@ const overlay = document.querySelector(".overlay");
 
 // __________________________Detail Button Function__________________________
 function detailData(id) {
-
 	fetchById(id)
 		.then((data) => {
 			const format = `
@@ -69,10 +68,10 @@ function editData(id) {
 			<div class="flex">
 				<button class="btn-close" onclick="closeModal()">⨉</button>
 			</div>
-			<h2 contenteditable="true" spellcheck="false">${data.title}</h2>
+			<h2 contenteditable="true" spellcheck="false" id="title" value="${data.title}">${data.title}</h2>
 			<div class="flex-row">
 				<div class="left">
-					<label for="artist">Nama penyanyi</label>
+					<label for="artist">Nama penyanyi/band</label>
 					<input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi" value="${data.artist}" required/>
 					<label for="album">Album lagu</label>
 					<input type="text" id="album" name="album" placeholder="Masukkan nama album" value="${data.album}" required/>
@@ -87,12 +86,12 @@ function editData(id) {
 					<label for="lyrics">Lirik lagu</label>
 					<input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu" value="${data.lyrics}" required/>
 					<label for="artwork" class="artDis"><i class="fa-solid fa-folder"></i> ${data.artwork}</label>
-					<input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" onchange="displayFileName('artwork', 'artDis')" disabled/>
+					<input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" onchange="displayFileName('artwork', 'artDis')"/>
 					<label for="song" class="songDis"><i class="fa-solid fa-folder"></i> ${data.url}</label>
-					<input type="file" id="song" name="song" accept=".mp3" onchange="displayFileName('song', 'songDis')" disabled/>
+					<input type="file" id="song" name="song" accept=".mp3, ,m4a" onchange="displayFileName('song', 'songDis')"/>
 				</div>
 			</div>
-			<button class="btn">Simpan perubahan</button>
+			<button class="btn" onclick="updateByID(${data.id})">Simpan perubahan</button>
 		`
 		modal.innerHTML = format
 		modal.style.width = '700px'
@@ -108,7 +107,7 @@ function editData(id) {
 function deleteData(id) {
 	fetchById(id)
 	.then((data) => {
-		console.log(data);
+		// console.log(data);
 		const format = `
 			<div class="flex">
 				<button class="btn-close" onclick="closeModal()">⨉</button>
@@ -135,7 +134,7 @@ function msgPopup(msg) {
 			<button class="btn-close" onclick="closeModal()">⨉</button>
 		</div>
 		<div>
-			<h1>Error ni bruh</h1>
+			<h1>INFOOO!!</h1>
 			<h3>${msg}</h3>
 		</div>
 		<button class="btn" onclick="closeModal()">Oke</button>
@@ -147,18 +146,25 @@ function msgPopup(msg) {
 }
 
 // __________________________Create New__________________________
-function hideForm() { 
-	const form = document.getElementById('form-input')
-	if (form.style.display == 'none') {
-		form.style.display = 'flex'
-		document.getElementById('inputToggle').innerText = 'Tutup form input'
-	} else {
-		form.style.display = 'none'
-		document.getElementById('inputToggle').innerText = 'Buka form input'
-	}
+function hideForm() {
+	msgPopup(`Gunakan kombinasi 'ctrl + 5' </br>(ctrl dan angka 5) </br>untuk menampilkan form input data baru.`)
 }
 
-// 
+document.body.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.key === '5') {
+        // alert('Ctrl + 5 pressed');
+		const form = document.getElementById('form-input')
+		if (form.style.display == 'none') {
+			closeModal()
+			form.style.display = 'flex'
+		} else {
+			form.style.display = 'none'
+		}
+    }
+});
+
+
+// __________________________Display file name on label tag__________________________
 function displayFileName(nameID, target) {
 	const fileName = document.getElementById(nameID).files[0]
 	// console.log(fileName.name);
