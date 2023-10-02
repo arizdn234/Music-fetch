@@ -70,15 +70,25 @@ function editData(id) {
 				<button class="btn-close" onclick="closeModal()">⨉</button>
 			</div>
 			<div>
-				<h2>Judul data</h2>
+				<h2 contenteditable="true" spellcheck="false">${data.title}</h2>
 	
-				<label for="teks">Data teks</label>
-				<input type="text" id="teks" name="teks" value="Sometext" />
-				<label for="angka">Data angka</label>
-				<input type="number" id="angka" name="angka" value="12" />
-				<label for="email">Data Email</label>
-				<input type="email" id="email" name="email" value="examplemail@mail.com" />
-			</div>
+                <label for="artist">Nama penyanyi</label>
+                <input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi" value="${data.artist}" required/>
+                <label for="album">Album lagu</label>
+                <input type="text" id="album" name="album" placeholder="Masukkan nama album" value="${data.album}" required/>
+                <label for="year">Tahun rilis</label>
+                <input type="number" id="year" name="year" placeholder="Masukkan tahun rilis" value="${data.year}" required/>
+                <label for="genre">Genre musik</label>
+                <input type="text" id="genre" name="genre" placeholder="Masukkan genre musik" value="${data.genre}" required/>
+                <label for="duration">Durasi musik</label>
+                <input type="text" id="duration" name="duration" placeholder="Masukkan durasi musik --Contoh (3:10)" value="${data.duration}" required/>
+                <label for="lyrics">Lirik lagu</label>
+                <input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu" value="${data.lyrics}" required/>
+                <label for="artwork" class="artDis"><i class="fa-solid fa-folder"></i> Pilih file Artwork</label>
+                <input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" onchange="displayFileName('artwork', 'artDis')" value="${data.artwork}" disabled/>
+                <label for="song" class="songDis"><i class="fa-solid fa-folder"></i> Pilih file Lagu</label>
+                <input type="file" id="song" name="song" accept=".mp3" onchange="displayFileName('song', 'songDis')" value="${data.url}" disabled/>
+            </div>
 			<button class="btn">Simpan</button>
 		`
 		modal.innerHTML = format
