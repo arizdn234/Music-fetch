@@ -13,16 +13,16 @@
       "lyrics": "Found you when your heart was broke..."
     },
     {
-      "id": 1696232381702,
-      "title": "Unstoppable",
-      "artist": "Sia",
-      "album": "This Is Acting",
-      "year": "2016",
-      "genre": "Alternative",
-      "duration": "3:36",
-      "artwork": "album-arts/Unstoppable.jpeg",
-      "url": "music-data/Unstoppable.mp3",
-      "lyrics": "All smiles, I know what it takes to fool this town..."
+      "id": 1696271777890,
+      "title": "Chop Suey",
+      "artist": "System Of A Down",
+      "album": "Toxicity",
+      "year": "2001",
+      "genre": "Nu metal",
+      "duration": "3:29",
+      "artwork": "album-arts/chop-suey.jpg",
+      "url": "music-data/Chop Suey.m4a",
+      "lyrics": "Wake up (wake up) Grab a brush and put a little make-up..."
     }
   ]
 }
