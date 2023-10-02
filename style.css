@@ -170,8 +170,21 @@ body {
     z-index: 6;
     font-family: 'Poppins', sans-serif;
     color: #30CFD0;
-    grid-template-columns: 1fr, 1fr;
+}
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    width: 50%;
+    padding: .5rem;
+}
+
+.right {
+    width: 50%;
+    padding: .5rem;
 }
 
 .modal h1 {
@@ -193,19 +206,14 @@ body {
 
 .modal input {
     padding: 0.7rem 1rem;
-    border: 1px solid #ddd;
-    background: #e4e4e4;
+    border: 1px solid aqua;
+    background: rgb(0, 43, 56);
     border-radius: 5px;
     font-size: 0.9em;
     display: inline-block;
-    color: #070707;
+    color: aqua;
     min-width: 92%;
     margin-bottom: .5rem;
-}
-
-input[type=file] {
-    height: 1rem;
-    background: #e4e4e4;
 }
 
 .modal p {
@@ -237,7 +245,7 @@ input[type=file] {
     display: inline-block;
     padding: 0.8rem 1.4rem;
     font-weight: 700;
-    background-color: black;
+    background: rgb(0, 20, 26);
     color: #30CFD0;
     border-radius: 5px;
     text-align: center;
@@ -339,7 +347,16 @@ input[type=file] {
 }
 
 /* some General style */
+#form-input input {
+    border: 1px solid aqua;
+    background: rgb(0, 43, 56);
+}
+
 input[type=file] {
+    display: none;
+}
+
+#form-input input[type=file] {
     display: none;
 }
 
@@ -350,6 +367,7 @@ label[for='song'] {
     margin-bottom: .7rem;
     display: block;
     border-radius: 5px;
+    background: rgb(0, 43, 56);
 }
 
 #form-input #saveNew {
