@@ -31,8 +31,8 @@ fetch(url)
                     </audio>
 					<button class="detail-button">
 						<span onclick="detailData(${data[i].id})" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
-						<span onclick="editData()" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
-						<span onclick="deleteData()" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
+						<span onclick="editData(${data[i].id})" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
+						<span onclick="deleteData(${data[i].id})" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
 					</button>
 					<button class="play-button" id="${data[i].id}${data[i].title[0]}" onclick="toggleAudio(${data[i].id}, '${data[i].id}${data[i].title[0]}')">
 						<i class="fa-solid fa-play"></i>
@@ -72,50 +72,77 @@ async function fetchById(id) {
 
 // POST Method
 async function createNew(event) {
-	event.preventDefault()
+    event.preventDefault();
 
-	let lastID = 0
-	fetch(url).then(data => {
-		return lastID = Math.max(...data.map(item => item.id));
-	})
-	console.log(lastID);
+    const title = document.getElementById('title').value;
+    const artist = document.getElementById('artist').value;
+    const album = document.getElementById('album').value;
+    const year = document.getElementById('year').value;
+    const genre = document.getElementById('genre').value;
+    const duration = document.getElementById('duration').value;
+    const art = document.getElementById('artwork').files[0].name;
+    const song = document.getElementById('song').files[0].name;
+    const lyrics = document.getElementById('lyrics').value;
 
-	const title = document.getElementById('title').value
-	const artist = document.getElementById('artist').value
-	const album = document.getElementById('album').value
-	const year = document.getElementById('year').value
-	const genre = document.getElementById('genre').value
-	const art = document.getElementById('artwork').files[0]
-	const song = document.getElementById('song').files[0]
-	const lyrics = document.getElementById('lyrics').value
+    const newId = Date.now();
 
-	const formData = new FormData();
-    formData.append('title', title);
-    formData.append('artist', artist);
-    formData.append('album', album);
-    formData.append('year', year);
-    formData.append('genre', genre);
-    formData.append('artwork', artwork);
-    formData.append('song', song);
-    formData.append('lyrics', lyrics);
-    formData.append('id', lastID++);
+    const jsonData = {
+        id: newId,
+        title: title,
+        artist: artist,
+        album: album,
+        year: year,
+        genre: genre,
+		duration: duration,
+        artwork: 'album-arts/' + art,
+        url: 'music-data/' + song,
+        lyrics: lyrics,
+    };
+	// console.log(jsonData);
 
-	try {
-		const response = await fetch(url, {
-			method: 'POST',
-			body: formData
-		})
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(jsonData),
+        });
 
-		if (response.ok) {
-			console.log('Sukses tambah data');
-			msgPopup('Sukses tambah data')
-		} else {
-			console.error('Gagal tambah data');
-			msgPopup('Gagal tambah data')
-		}
-	} catch (error) {
-		const msg = `Permintaan POST error: ${error}`
-		console.error(msg)
+        if (!response.ok) {
+            throw new Error('Gagal mengirim data ke server.');
+        }
+
+		const msg = 'Data berhasil dikirim ke server'
+        console.log(msg);
 		msgPopup(msg)
-	}
+    } catch (error) {
+        console.error('Terjadi kesalahan:', error);
+    }
+	
+}
+
+// DELETE Method
+async function deleteByID(id) {
+    try {
+        const response = await fetch(`${url}/${id}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            throw new Error('Gagal mengirim permintaan DELETE ke server.');
+        }
+
+        // Assuming the deletion was successful, you can update the UI or perform other actions as needed.
+		const msg = `Data dengan ID ${id} telah dihapus`
+        console.log(msg);
+		msgPopup(msg)
+
+        // Close the modal
+        closeModal();
+    } catch (error) {
+		const msg = `Terjadi kesalahan saat menghapus data: ${error}`
+        console.error(msg);
+		msgPopup(msg)
+    }
 }
