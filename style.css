@@ -170,6 +170,8 @@ body {
     z-index: 6;
     font-family: 'Poppins', sans-serif;
     color: #30CFD0;
+    grid-template-columns: 1fr, 1fr;
+
 }
 
 .modal h1 {
@@ -336,12 +338,13 @@ input[type=file] {
     display: block;
 }
 
-#form-input input[type=file] {
+/* some General style */
+input[type=file] {
     display: none;
 }
 
-#form-input label[for='artwork'],
-#form-input label[for='song'] {
+label[for='artwork'],
+label[for='song'] {
     border: 1px dashed aqua;
     padding: 1rem;
     margin-bottom: .7rem;
