@@ -138,6 +138,7 @@ function msgPopup(msg) {
 			<h3>${msg}</h3>
 		</div>
 		<button class="btn" onclick="closeModal()">Oke</button>
+		<button class="btn" onclick="location.reload()">Muat ulang</button>
 	`
 	modal.innerHTML = format
 	modal.style.width = '384px'
