@@ -1,124 +1,124 @@
 {
   "songs": [
     {
-      "id": "1696271777890",
       "title": "Chop Suey",
       "artist": "System Of A Down",
       "album": "Toxicity",
       "year": "2001",
       "genre": "Nu metal",
       "duration": "3:29",
-      "artwork": "album-arts/chop-suey.jpg",
-      "url": "music-data/Chop Suey.m4a",
-      "lyrics": "Wake up (wake up) Grab a brush and put a little make-up..."
+      "artwork": "1z8ZrjaatdojPh0ljIMIaZGLbSMN5H2Ar",
+      "url": "1IRbMnxSRbNr4FhZMQHGFHW5Ibv7PcBL2",
+      "lyrics": "Wake up (wake up) Grab a brush and put a little make-up...",
+      "id": "1696271777890"
     },
     {
-      "id": "1696333569025",
       "title": "Unstoppable",
       "artist": "Sia",
       "album": "This Is Acting",
       "year": "2016",
       "genre": "Alternative",
       "duration": "3:29",
-      "artwork": "album-arts/Unstoppable.jpeg",
-      "url": "music-data/Unstoppable.mp3",
-      "lyrics": "All smiles, I know what it takes to fool this town..."
+      "artwork": "1KmdVSy8aAGNCQGFoGpXqtowqkonnGYC_",
+      "url": "1CW6kzs5LBdtyO2WpLcMFMIjx21vmMfoS",
+      "lyrics": "All smiles, I know what it takes to fool this town...",
+      "id": "1696333569025"
     },
     {
       "title": "Death Bed",
       "artist": "Powfu",
       "album": "Poems About You",
-      "year": 2020,
+      "year": "2020",
       "genre": "Pop",
       "duration": "2:53",
-      "artwork": "album-arts/death-bed.jpg",
-      "url": "music-data/Death Bed.mp3",
-      "id": "1",
-      "lyrics": "Here's to the ones that we got\nCheers to the wish you were here..."
+      "artwork": "1kQo9FnLq4iM6dAHPKhW5D1izU0jEn38q",
+      "url": "1yXOtgXSA-hz1djedeVPoCSTkojmKvbKl",
+      "lyrics": "Here's to the ones that we gotCheers to the wish you were here...",
+      "id": "1"
     },
     {
       "title": "Bad Liar",
       "artist": "Imagine Dragons",
       "album": "Origins",
-      "year": 2018,
+      "year": "2018",
       "genre": "Alternative",
       "duration": "4:20",
-      "artwork": "album-arts/bad-liar.jpg",
-      "url": "music-data/Bad Liar.mp3",
-      "id": "2",
-      "lyrics": "Oh, hush, my dear, it's been a difficult year..."
+      "artwork": "1kWt3H8c0MsHpPZ_2hzKw1DkqdR5f3mYG",
+      "url": "1zvfi5HFNPaSfjVyfYMjh1d0GUN28qXuY",
+      "lyrics": "Oh, hush, my dear, it's been a difficult year...",
+      "id": "2"
     },
     {
       "title": "Faded",
       "artist": "Alan Walker",
       "album": "Different World",
-      "year": 2015,
+      "year": "2015",
       "genre": "Electronic",
       "duration": "3:32",
-      "artwork": "album-arts/faded.jpg",
-      "url": "music-data/Faded.mp3",
-      "id": "3",
-      "lyrics": "You were the shadow to my light..."
+      "artwork": "1Sf21o8eZgnOdLTcJwTJB_OscohZBF9uV",
+      "url": "1gTU6F_0quklLajIT4mwWsKNN01Xagh4g",
+      "lyrics": "You were the shadow to my light...",
+      "id": "3"
     },
     {
       "title": "Hate Me",
       "artist": "Ellie Goulding",
       "album": "Brightest Blue",
-      "year": 2019,
+      "year": "2019",
       "genre": "Pop",
       "duration": "3:06",
-      "artwork": "album-arts/hate-me.jpg",
-      "url": "music-data/Hate Me.mp3",
-      "id": "4",
-      "lyrics": "Hate me, hate me, still tryna replace me..."
+      "artwork": "1BB8hs5qOZU3VKgswYTmxEIH5Z1sP7wSK",
+      "url": "16SVa3n3-dFkx0RQTknOPMQY_lH71wVee",
+      "lyrics": "Hate me, hate me, still tryna replace me...",
+      "id": "4"
     },
     {
       "title": "Solo",
       "artist": "Clean Bandit",
       "album": "What Is Love?",
-      "year": 2018,
+      "year": "2018",
       "genre": "Pop",
       "duration": "3:42",
-      "artwork": "album-arts/solo.jpg",
-      "url": "music-data/Solo.mp3",
-      "id": "5",
-      "lyrics": "It's solo, solo, everybody..."
+      "artwork": "1Rvjexdi1J9ZOpQ2i6oqb1SiYscaTgcdg",
+      "url": "1oEpMucvSOsxtCjQzRpU8pNjZbW2-vI5a",
+      "lyrics": "It's solo, solo, everybody...",
+      "id": "5"
     },
     {
       "title": "Without Me",
       "artist": "Halsey",
       "album": "Manic",
-      "year": 2019,
+      "year": "2019",
       "genre": "Pop",
       "duration": "3:21",
-      "artwork": "album-arts/without-me.jpg",
-      "url": "music-data/Without Me.mp3",
-      "id": "6",
-      "lyrics": "Found you when your heart was broke..."
+      "artwork": "1F5xH_5V0jqc8N6cyTyfra9cB6TyFKNK_",
+      "url": "1znTFdMBXlUnhEAMA37gv4GAAJzpV8AVo",
+      "lyrics": "Found you when your heart was broke...",
+      "id": "6"
     },
     {
-      "id": "1696333802553",
       "title": "Faint",
       "artist": "Linkin Park",
       "album": "Meteora",
       "year": "2003",
       "genre": "Alternative",
       "duration": "2:43",
-      "artwork": "album-arts/faint.jpg",
-      "url": "music-data/Faint.mp3",
-      "lyrics": "I am a little bit of loneliness, a little bit of disregard..."
+      "artwork": "10d1P9zya4087LHCPhtwE_gXgDEpeI3ND",
+      "url": "1D0ZCSxWEPpnEMtZSFnuwvvclUSaVFMsN",
+      "lyrics": "I am a little bit of loneliness, a little bit of disregard...",
+      "id": "1696333802553"
     },
     {
-      "id": "1696333929500",
       "title": "Menuju Senja",
       "artist": "Payung Teduh",
       "album": "Dunia Batas",
       "year": "2012",
       "genre": "Indonesian Indie",
       "duration": "5:07",
-      "artwork": "album-arts/menujusenjadd.jpg",
-      "url": "music-data/Menuju Senja.mp3",
-      "lyrics": "Harum mawar di taman Menusuk hingga ke dalam sukma..."
+      "artwork": "1g-H4zhqACzFRhoA3BXyy1qKV5WOSHGer",
+      "url": "1amDUe4E_Oz5XLUUAoR-2RK8Kg5k1uOTE",
+      "lyrics": "Harum mawar di taman Menusuk hingga ke dalam sukma...",
+      "id": "1696333929500"
     }
   ]
 }
