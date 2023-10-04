@@ -287,6 +287,7 @@ body {
     border-radius: 12px;
     align-self: center;
     cursor: pointer;
+    margin-bottom: 2.6rem;
 }
 
 #inputToggle {
