@@ -263,23 +263,6 @@ body {
     border-radius: 50%;
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
-    z-index: 5;
-}
-
-.hidden {
-    display: none;
-}
-
 /* __________________________Embed JSON style__________________________ */
 #show-json-from-git {
     background: black;
@@ -318,14 +301,18 @@ body {
 }
 
 /* __________________________Form input style__________________________ */
-.modal-grid {
+.cn-container {
     display: flex;
     flex-direction: column;
     width: 100%;
     font-family: 'Poppins', sans-serif;
+
 }
 
 #form-input {
+    position: fixed;
+    z-index: 6;
+    background-color: rgba(0, 49, 53, 0.8);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -336,22 +323,38 @@ body {
     padding: 1rem;
     width: fit-content;
     border-radius: 15px;
+    top: 5%;
+    width: 700px;
 }
 
 #form-input input {
-    width: 350px;
+    width: 300px;
     padding: 1rem;
     margin-bottom: .5rem;
     border: none;
     border-radius: 5px;
     display: block;
-}
-
-/* __________________________some General style__________________________ */
-#form-input input {
     border: 1px solid aqua;
     background: rgb(0, 43, 56);
     color: aqua;
+}
+
+/* __________________________some General style__________________________ */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+.hidden {
+    display: none;
 }
 
 input[type=file] {
