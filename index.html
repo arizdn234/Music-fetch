@@ -11,6 +11,18 @@
 
     <!-- Own styles -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Swiper JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -64,7 +76,7 @@
     <div class="modal-grid">
         <h1 class="judul">Buat Data Baru</h1>
         <button onclick="hideForm()" id="inputToggle">Buka form input</button>
-        <form id="form-input" style="display: none;">
+        <form id="form-input" style="display: none;" enctype="multipart/form-data">
             <div>
                 <label for="title">Judul lagu</label>
                 <input type="text" id="title" name="title" placeholder="Masukkan judul lagu" required/>
@@ -98,14 +110,6 @@
             <pre id="show-json-from-git"></pre>
         </div>
     </div>
-
-    <!-- Font Awesome CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
-        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- Swiper JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <!-- Modal function JS -->
     <script src="js/modal.js"></script>
