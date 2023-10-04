@@ -13,28 +13,36 @@ fetch(urlEmbed)
 // __________________________JSON fetch music.json__________________________
 const url = 'http://localhost:3000/songs';
 
+// fetch(url, { mode: 'cors' })
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log(data.songs[0]);
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
 // __________________________GET All Method__________________________
 fetch(url)
 	.then(response => response.json())
 	.then(data => {
-		// document.getElementById('artwork-image').src = data.artwork
+		// document.getElementById('artwork-image').src = data.songs.artwork
 				
-		for (let i = 0; i < data.length; i++) {
-			// console.log(data[i].title);
+		for (let i = 0; i < data.songs.length; i++) {
+			// console.log(data.songs[i].title);
 			const format = `
 				<div class="card">
-					<img src="${data[i].artwork}" id="${data[i].id}ss"/>
-					<h2>${data[i].title}</h2>
-					<p>${data[i].artist}</p>
-                    <audio id="${data[i].id}">
-                        <source src="${data[i].url}" type="audio/mpeg">
+					<img src="${data.songs[i].artwork}" id="${data.songs[i].id}ss"/>
+					<h2>${data.songs[i].title}</h2>
+					<p>${data.songs[i].artist}</p>
+                    <audio id="${data.songs[i].id}">
+                        <source src="${data.songs[i].url}" type="audio/mpeg">
                     </audio>
 					<button class="detail-button">
-						<span onclick="detailData(${data[i].id})" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
-						<span onclick="editData(${data[i].id})" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
-						<span onclick="deleteData(${data[i].id})" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
+						<span onclick="detailData(${data.songs[i].id})" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
+						<span onclick="editData(${data.songs[i].id})" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
+						<span onclick="deleteData(${data.songs[i].id})" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
 					</button>
-					<button class="play-button" id="${data[i].id}${data[i].title[0]}" onclick="toggleAudio(${data[i].id}, '${data[i].id}${data[i].title[0]}')">
+					<button class="play-button" id="${data.songs[i].id}${data.songs[i].title[0]}" onclick="toggleAudio(${data.songs[i].id}, '${data.songs[i].id}${data.songs[i].title[0]}')">
 						<i class="fa-solid fa-play"></i>
 					</button>
 				</div>
@@ -56,7 +64,7 @@ fetch(url)
 // __________________________GET by ID Method (trigger on Modal)__________________________
 async function fetchById(id) {
 	try {
-		const response = await fetch(`http://localhost:3000/songs/${id}`)
+		const response = await fetch(`${url}/${id}`)
 		if (!response.ok) {
 			throw new Error('Gagal untuk fetch data')
 		}
@@ -71,54 +79,72 @@ async function fetchById(id) {
 }
 
 // __________________________POST Method__________________________
-async function createNew(event) {
+function createNew(event) {
     event.preventDefault();
 
-    const title = document.getElementById('title').value;
-    const artist = document.getElementById('artist').value;
-    const album = document.getElementById('album').value;
-    const year = document.getElementById('year').value;
-    const genre = document.getElementById('genre').value;
-    const duration = document.getElementById('duration').value;
-    const art = document.getElementById('artwork').files[0].name;
-    const song = document.getElementById('song').files[0].name;
-    const lyrics = document.getElementById('lyrics').value;
+    // const title = document.getElementById('title').value;
+    // const artist = document.getElementById('artist').value;
+    // const album = document.getElementById('album').value;
+    // const year = document.getElementById('year').value;
+    // const genre = document.getElementById('genre').value;
+    // const duration = document.getElementById('duration').value;
+    // const art = document.getElementById('artwork').files[0];
+    // const song = document.getElementById('song').files[0];
+    // const lyrics = document.getElementById('lyrics').value;
 
-    const newId = Date.now();
+    const newId = String(Date.now());
+    // console.log(typeof newId);
 
-    const jsonData = {
-        id: newId,
-        title: title,
-        artist: artist,
-        album: album,
-        year: year,
-        genre: genre,
-		duration: duration,
-        artwork: 'album-arts/' + art,
-        url: 'music-data/' + song,
-        lyrics: lyrics,
-    };
-	// console.log(jsonData);
+    const formData = new FormData(document.getElementById('form-input'))
+    formData.append('id', newId)
+    // formData.append('title', title)
+    // formData.append('artist', artist)
+    // formData.append('album', album)
+    // formData.append('year', year)
+    // formData.append('genre', genre)
+    // formData.append('duration', duration)
+    // formData.append('artwork', art)
+    // formData.append('url', song)
+    // formData.append('lyrics', lyrics)
 
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(jsonData),
-        });
+	console.log([...formData]);
 
-        if (!response.ok) {
-            throw new Error('Gagal mengirim data ke server.');
-        }
+    axios.post('https://httpbin.org/post', formData)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    
 
-		const msg = 'Data berhasil dikirim ke server'
-        console.log(msg);
-		msgPopup(msg)
-    } catch (error) {
-        console.error('Terjadi kesalahan:', error);
-    }
+    // const artFile = document.getElementById('artwork').files[0];
+    // const songFile = document.getElementById('song').files[0];
+    // let formData = new FormData();
+    // formData.append("images", artFile);
+    // formData.append("music", songFile);
+
+    // axios.post(`${url}/upload`, formData, {
+    //     headers: {
+    //         "Content-Type": "multipart/form-data",
+    //     }
+    // });
+
+    // try {
+    //     const response = await fetch(url, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(jsonData),
+    //     });
+
+    //     if (!response.ok) {
+    //         throw new Error('Gagal mengirim data ke server.');
+    //     }
+
+	// 	const msg = 'Data berhasil dikirim ke server'
+    //     console.log(msg);
+	// 	msgPopup(msg)
+    // } catch (error) {
+    //     console.error('Terjadi kesalahan:', error);
+    // }
 	
 }
 
