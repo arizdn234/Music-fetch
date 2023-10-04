@@ -70,35 +70,35 @@ app.get('/songs/:id', (req, res) => {
 });
 
 // POST method
-app.post('/songs', (req, res) => {
-    // app.post('/songs', [imageUpload.single('artwork'), musicUpload.single('song')], (req, res) => {
+// app.post('/songs', (req, res) => {
+app.post('/songs', [imageUpload.single('artwork'), musicUpload.single('song')], (req, res) => {
     try {
-        console.log(req);
-    //     const { id, title, artist, album, year, genre, duration, lyrics } = req.body;
-    //   const imageFile = req.file;
-    //   const musicFile = req.file;
+        // console.log(req);
+        const { id, title, artist, album, year, genre, duration, lyrics } = req.body;
+      const imageFile = req.file;
+      const musicFile = req.file;
   
-    //   if (!imageFile || !musicFile) {
-    //     return res.status(400).json({ message: 'Harap unggah gambar dan musik' });
-    //   }
+      if (!imageFile || !musicFile) {
+        return res.status(400).json({ message: 'Harap unggah gambar dan musik' });
+      }
 
-    //   const newSong = {
-    //     id: id,
-    //     title: title,
-    //     artist: artist,
-    //     album: album,
-    //     genre: genre,
-    //     year: year,
-    //     duration: duration,
-    //     artwork: imageFile.filename,
-    //     url: musicFile.filename,
-    //     lyrics: lyrics
-    //   };
+      const newSong = {
+        id: id,
+        title: title,
+        artist: artist,
+        album: album,
+        genre: genre,
+        year: year,
+        duration: duration,
+        artwork: imageFile.filename,
+        url: musicFile.filename,
+        lyrics: lyrics
+      };
 
     //   console.log(newSong);
   
-    //   // Lakukan sesuatu dengan data baru, seperti menyimpannya ke database
-    //   songs.push(newSong);
+      // Lakukan sesuatu dengan data baru, seperti menyimpannya ke database
+      songs.push(newSong);
   
     //   res.status(201).json({ message: 'Data berhasil dibuat', song: newSong });
     } catch (error) {
