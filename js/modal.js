@@ -160,7 +160,9 @@ document.body.addEventListener('keydown', (event) => {
 		if (form.style.display == 'none') {
 			closeModal()
 			form.style.display = 'flex'
+			overlay.classList.remove("hidden");
 		} else {
+			overlay.classList.add("hidden");
 			form.style.display = 'none'
 		}
     }
@@ -178,12 +180,14 @@ function displayFileName(nameID, target) {
 function closeModal() {
 	modal.classList.add("hidden");
 	overlay.classList.add("hidden");
+	document.getElementById('form-input').style.display = 'none'
 }
 
 // __________________________Close Modal with outer area of Modal__________________________
 overlay.addEventListener("click", () => {
 	modal.classList.add("hidden");
 	overlay.classList.add("hidden");
+	document.getElementById('form-input').style.display = 'none'
 });
 
 // __________________________Toggler Button Function__________________________
