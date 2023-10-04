@@ -73,30 +73,38 @@
     </div>
 
     <!-- Form data baru -->
-    <div class="modal-grid">
+    <div class="cn-container">
         <h1 class="judul">Buat Data Baru</h1>
         <button onclick="hideForm()" id="inputToggle">Buka form input</button>
         <form id="form-input" style="display: none;" enctype="multipart/form-data">
-            <div>
-                <label for="title">Judul lagu</label>
-                <input type="text" id="title" name="title" placeholder="Masukkan judul lagu" required/>
-                <label for="artist">Nama penyanyi/band</label>
-                <input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi/band" required/>
-                <label for="album">Album lagu</label>
-                <input type="text" id="album" name="album" placeholder="Masukkan nama album" required/>
-                <label for="year">Tahun rilis</label>
-                <input type="number" id="year" name="year" placeholder="Masukkan tahun rilis" required/>
-                <label for="genre">Genre musik</label>
-                <input type="text" id="genre" name="genre" placeholder="Masukkan genre musik" required/>
-                <label for="duration">Durasi musik</label>
-                <input type="text" id="duration" name="duration" placeholder="Masukkan durasi musik --Contoh (3:10)" required/>
-                <label for="lyrics">Lirik lagu</label>
-                <input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu" required/>
-                <label for="artwork" class="artDis"><i class="fa-solid fa-folder"></i> Pilih file Artwork</label>
-                <input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" onchange="displayFileName('artwork', 'artDis')" required/>
-                <label for="song" class="songDis"><i class="fa-solid fa-folder"></i> Pilih file Lagu</label>
-                <input type="file" id="song" name="song" accept=".mp3, .m4a" onchange="displayFileName('song', 'songDis')" required/>
-            </div>
+            <h1>Buat Data Baru</h1>
+            <div class="flex">
+				<button class="btn-close" onclick="closeModal()">⨉</button>
+			</div>
+            <div class="flex-row">
+				<div class="left">
+                    <label for="title">Judul lagu</label>
+                    <input type="text" id="title" name="title" placeholder="Masukkan judul lagu" required/>
+                    <label for="artist">Nama penyanyi/band</label>
+                    <input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi/band" required/>
+                    <label for="album">Album lagu</label>
+                    <input type="text" id="album" name="album" placeholder="Masukkan nama album" required/>
+                    <label for="year">Tahun rilis</label>
+                    <input type="number" id="year" name="year" placeholder="Masukkan tahun rilis" required/>
+                </div>
+				<div class="right">
+                    <label for="genre">Genre musik</label>
+                    <input type="text" id="genre" name="genre" placeholder="Masukkan genre musik" required/>
+                    <label for="duration">Durasi musik</label>
+                    <input type="text" id="duration" name="duration" placeholder="Masukkan durasi musik --Contoh (3:10)" required/>
+                    <label for="lyrics">Lirik lagu</label>
+                    <input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu" required/>
+                    <label for="artwork" class="artDis"><i class="fa-solid fa-folder"></i> Pilih file Artwork</label>
+                    <input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" onchange="displayFileName('artwork', 'artDis')" required/>
+                    <label for="song" class="songDis"><i class="fa-solid fa-folder"></i> Pilih file Lagu</label>
+                    <input type="file" id="song" name="song" accept=".mp3, .m4a" onchange="displayFileName('song', 'songDis')" required/>
+                </div>
+			</div>
             <button id="saveNew" type="submit" onclick="createNew(event)">Simpan data</button>
         </form>
     </div>
