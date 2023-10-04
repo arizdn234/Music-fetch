@@ -4,10 +4,10 @@ const overlay = document.querySelector(".overlay");
 
 // __________________________Detail Button Function__________________________
 function detailData(id) {
-	console.log(id);
+	// console.log(id);
 	fetchById(id)
 		.then((data) => {
-			console.log(data);
+			// console.log(data);
 			const format = `
 				<h1>Detail</h1>
 				<div class="flex">
@@ -74,23 +74,23 @@ function editData(id) {
 			<div class="flex-row">
 				<div class="left">
 					<label for="artist">Nama penyanyi/band</label>
-					<input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi" value="${data.artist}" required/>
+					<input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi" value="${data.artist}"/>
 					<label for="album">Album lagu</label>
-					<input type="text" id="album" name="album" placeholder="Masukkan nama album" value="${data.album}" required/>
+					<input type="text" id="album" name="album" placeholder="Masukkan nama album" value="${data.album}"/>
 					<label for="year">Tahun rilis</label>
-					<input type="number" id="year" name="year" placeholder="Masukkan tahun rilis" value="${data.year}" required/>
+					<input type="number" id="year" name="year" placeholder="Masukkan tahun rilis" value="${data.year}"/>
 					<label for="genre">Genre musik</label>
-					<input type="text" id="genre" name="genre" placeholder="Masukkan genre musik" value="${data.genre}" required/>
+					<input type="text" id="genre" name="genre" placeholder="Masukkan genre musik" value="${data.genre}"/>
 				</div>
 				<div class="right">
 					<label for="duration">Durasi musik</label>
-					<input type="text" id="duration" name="duration" placeholder="Masukkan durasi musik --Contoh (3:10)" value="${data.duration}" required/>
+					<input type="text" id="duration" name="duration" placeholder="Masukkan durasi musik --Contoh (3:10)" value="${data.duration}"/>
 					<label for="lyrics">Lirik lagu</label>
-					<input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu" value="${data.lyrics}" required/>
-					<label for="artwork" class="artDis"><i class="fa-solid fa-folder"></i> ${data.artwork}</label>
-					<input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" onchange="displayFileName('artwork', 'artDis')"/>
-					<label for="song" class="songDis"><i class="fa-solid fa-folder"></i> ${data.url}</label>
-					<input type="file" id="song" name="song" accept=".mp3, ,m4a" onchange="displayFileName('song', 'songDis')"/>
+					<input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu" value="${data.lyrics}"/>
+					<label for="">Data ID artwork</label>
+					<input type="text" id="artwork" name="artwork" value="${data.artwork}"/>
+					<label for="">Data ID song</label>
+					<input type="text" id="song" name="song" value="${data.url}"/>
 				</div>
 			</div>
 			<button class="btn" onclick="updateByID(${data.id})">Simpan perubahan</button>
