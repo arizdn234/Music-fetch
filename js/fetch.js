@@ -12,6 +12,7 @@ fetch(urlEmbed)
 
 // __________________________JSON fetch music.json__________________________
 const url = 'http://localhost:3000/songs';
+const tweak = 'https://drive.google.com/uc?export=view&id='
 
 // fetch(url, { mode: 'cors' })
 //   .then(response => response.json())
@@ -25,24 +26,24 @@ const url = 'http://localhost:3000/songs';
 fetch(url)
 	.then(response => response.json())
 	.then(data => {
-		// document.getElementById('artwork-image').src = data.songs.artwork
+		// document.getElementById('artwork-image').src = data.artwork
 				
-		for (let i = 0; i < data.songs.length; i++) {
-			// console.log(data.songs[i].title);
+		for (let i = 0; i < data.length; i++) {
+			// console.log(data[i].title);
 			const format = `
 				<div class="card">
-					<img src="${data.songs[i].artwork}" id="${data.songs[i].id}ss"/>
-					<h2>${data.songs[i].title}</h2>
-					<p>${data.songs[i].artist}</p>
-                    <audio id="${data.songs[i].id}">
-                        <source src="${data.songs[i].url}" type="audio/mpeg">
+					<img src="${tweak+data[i].artwork}" id="${data[i].id}ss"/>
+					<h2>${data[i].title}</h2>
+					<p>${data[i].artist}</p>
+                    <audio id="${data[i].id}">
+                        <source src="${tweak+data[i].url}" type="audio/mpeg">
                     </audio>
 					<button class="detail-button">
-						<span onclick="detailData(${data.songs[i].id})" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
-						<span onclick="editData(${data.songs[i].id})" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
-						<span onclick="deleteData(${data.songs[i].id})" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
+						<span onclick="detailData(${data[i].id})" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
+						<span onclick="editData(${data[i].id})" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
+						<span onclick="deleteData(${data[i].id})" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
 					</button>
-					<button class="play-button" id="${data.songs[i].id}${data.songs[i].title[0]}" onclick="toggleAudio(${data.songs[i].id}, '${data.songs[i].id}${data.songs[i].title[0]}')">
+					<button class="play-button" id="${data[i].id}${data[i].title[0]}" onclick="toggleAudio(${data[i].id}, '${data[i].id}${data[i].title[0]}')">
 						<i class="fa-solid fa-play"></i>
 					</button>
 				</div>
@@ -79,39 +80,43 @@ async function fetchById(id) {
 }
 
 // __________________________POST Method__________________________
-function createNew(event) {
+async function createNew(event) {
     event.preventDefault();
 
-    // const title = document.getElementById('title').value;
-    // const artist = document.getElementById('artist').value;
-    // const album = document.getElementById('album').value;
-    // const year = document.getElementById('year').value;
-    // const genre = document.getElementById('genre').value;
-    // const duration = document.getElementById('duration').value;
-    // const art = document.getElementById('artwork').files[0];
-    // const song = document.getElementById('song').files[0];
-    // const lyrics = document.getElementById('lyrics').value;
+    const title = document.getElementById('title').value;
+    const artist = document.getElementById('artist').value;
+    const album = document.getElementById('album').value;
+    const year = document.getElementById('year').value;
+    const genre = document.getElementById('genre').value;
+    const duration = document.getElementById('duration').value;
+    const art = document.getElementById('artwork').files[0].name;
+    const song = document.getElementById('song').files[0].name;
+    const lyrics = document.getElementById('lyrics').value;
 
     const newId = String(Date.now());
     // console.log(typeof newId);
 
-    const formData = new FormData(document.getElementById('form-input'))
-    formData.append('id', newId)
-    // formData.append('title', title)
-    // formData.append('artist', artist)
-    // formData.append('album', album)
-    // formData.append('year', year)
-    // formData.append('genre', genre)
-    // formData.append('duration', duration)
-    // formData.append('artwork', art)
-    // formData.append('url', song)
-    // formData.append('lyrics', lyrics)
+    // const formData = new FormData(document.getElementById('form-input'))
+    // formData.append('id', newId)
 
-	console.log([...formData]);
+    const formData = {
+        "id": newId,
+        "title": title,
+        "artist": artist,
+        "album": album,
+        "year": year,
+        "genre": genre,
+        "duration": duration,
+        "artwork": `album-arts/${art}`,
+        "url": `music-data/${song}`,
+        "lyrics": lyrics,
+    }
 
-    axios.post('https://httpbin.org/post', formData)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+	console.log(formData);
+
+    // axios.post(url, formData)
+    //     .then(res => console.log(res))
+    //     .catch(err => console.log(err))
     
 
     // const artFile = document.getElementById('artwork').files[0];
@@ -156,6 +161,8 @@ async function updateByID(id) {
     const year = document.getElementById('year').value;
     const genre = document.getElementById('genre').value;
     const duration = document.getElementById('duration').value;
+    const artwork = document.getElementById('artwork').value;
+    const song = document.getElementById('song').value;
     const lyrics = document.getElementById('lyrics').value;
 
     const jsonData = {
@@ -165,6 +172,8 @@ async function updateByID(id) {
         year: year,
         genre: genre,
 		duration: duration,
+		artwork: artwork,
+		url: song,
         lyrics: lyrics,
     };
 	// console.log(jsonData);
