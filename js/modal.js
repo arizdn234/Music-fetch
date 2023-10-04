@@ -4,8 +4,10 @@ const overlay = document.querySelector(".overlay");
 
 // __________________________Detail Button Function__________________________
 function detailData(id) {
+	console.log(id);
 	fetchById(id)
 		.then((data) => {
+			console.log(data);
 			const format = `
 				<h1>Detail</h1>
 				<div class="flex">
