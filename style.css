@@ -163,8 +163,8 @@ body {
     gap: 0.4rem;
     width: 450px;
     padding: 1.3rem;
+    top: 10%;
     min-height: 100px;
-    margin-top: 50%;
     background-color: rgba(0, 49, 53, 0.8);
     border: 1px solid #ddd;
     border-radius: 15px;
