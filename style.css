@@ -362,12 +362,23 @@ input[type=file] {
     display: none;
 }
 
-#form-input input[type=file] {
+#form-input input[type=button] {
     display: none;
 }
 
 label[for='artwork'],
 label[for='song'] {
+    border: 1px dashed aqua;
+    padding: 1rem;
+    margin-bottom: .7rem;
+    display: block;
+    border-radius: 5px;
+    background: rgb(0, 43, 56);
+    cursor: pointer;
+}
+
+label[for='artworkUp'],
+label[for='songUp'] {
     border: 1px dashed aqua;
     padding: 1rem;
     margin-bottom: .7rem;
