@@ -1,13 +1,13 @@
-// IMPORTIR
+// __________________________IMPORTIR__________________________
 const express = require('express')
 const multer = require('multer')
 const fs = require('fs')
 
-// __APP INIT__
-
+// __________________________APP INIT__________________________
 const app = express()
 const PORT = 3000
 
+// __________________________DISK__________________________
 // General disk
 // const storage = multer.diskStorage({
 //     destination: function (req, file, cb) {
@@ -19,10 +19,10 @@ const PORT = 3000
 // });
 // const upload = multer({ storage: storage });
 
-// Artwork disk
+// __________________________Artwork disk__________________________
 const imageStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'album-arts/');
+        cb(null, 'public/album-arts/');
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -30,10 +30,10 @@ const imageStorage = multer.diskStorage({
 });
 const imageUpload = multer({ storage: imageStorage });
 
-// Music disk
+// __________________________Music disk__________________________
 const musicStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'music-data/');
+        cb(null, 'public/music-data/');
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -41,20 +41,20 @@ const musicStorage = multer.diskStorage({
 });
 const musicUpload = multer({ storage: musicStorage });
 
-// JSON CRUD
+// __________________________JSON CRUD__________________________
 const readData = () => {
     const jsonData = fs.readFileSync('music--local.json', 'utf-8')
     return JSON.parse(jsonData)
 }
 function writeData(data) {
-    fs.writeFileSync('music--local.json', JSON.stringify(data));
-  }
+    fs.writeFileSync('music--local.json', JSON.stringify(data, null, 2));
+}
 
-// __APP ROUTES__
-
+// ____________________________APP INIT____________________________
+app.use(express.static('public'))
 app.use(express.json())
 
-// Add Access Control Allow Origin headers
+// __________________________Add Access Control Allow Origin headers__________________________
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", '*');
     res.header(
@@ -64,13 +64,18 @@ app.use((req, res, next) => {
     next();
 });
 
-// GET All method
+// __________________________App port__________________________
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+});
+
+// __________________________GET All method__________________________
 app.get('/songs/', (req, res) => {
     const data = readData()
     res.json(data)
 })
 
-// GET By ID method
+// __________________________GET By ID method__________________________
 app.get('/songs/:id', (req, res) => {
     const id = req.params.id;
     const data = readData();
@@ -84,7 +89,7 @@ app.get('/songs/:id', (req, res) => {
     res.json(song);
 });
 
-// POST method
+// __________________________POST method__________________________
 app.post('/songs', (req, res) => {
     try {
         console.log(req.body);
@@ -99,7 +104,7 @@ app.post('/songs', (req, res) => {
     }
 });
 
-// Image upload
+// __________________________Image upload__________________________
 app.post('/songs/uploadsartworkUp', imageUpload.single('artworkUp'), (req, res) => {
     try {
         console.log(req.file);
@@ -110,7 +115,7 @@ app.post('/songs/uploadsartworkUp', imageUpload.single('artworkUp'), (req, res) 
     }
 });
 
-// Song upload
+// __________________________Song upload__________________________
 app.post('/songs/uploadssongUp', musicUpload.single('songUp'), (req, res) => {
     try {
         console.log(req.file);
@@ -121,19 +126,24 @@ app.post('/songs/uploadssongUp', musicUpload.single('songUp'), (req, res) => {
     }
 });
 
-
-// DELETE By ID method
+// __________________________DELETE By ID method__________________________
 app.delete('/songs/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const index = songs.findIndex(song => song.id === id);
+    const id = req.params.id;
+    const data = readData()
+    const index = data.songs.findIndex(song => song.id === id);
+
+    // console.log(typeof id);
+    // console.log(id);
+    // console.log(index);
 
     if (index === -1) {
         return res.status(404).json({ message: 'Lagu tidak ditemukan' });
     }
 
-    songs.splice(index, 1);
-
+    data.songs.splice(index, 1);
+    writeData(data)
     res.json({ message: 'Lagu berhasil dihapus' });
 });
 
+// __________________________Server port__________________________
 app.listen(PORT, () => console.log(`Server run on port ${PORT}\n\nhttp://localhost:${PORT}`))
