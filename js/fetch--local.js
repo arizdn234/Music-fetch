@@ -6,7 +6,7 @@ fetch(urlEmbed)
 		document.getElementById("show-json-from-git").innerText = out
 	})
 	.catch((err) => {
-		msgPopup(err)
+		msgPopup('Tidak ada internet</br></br>gagal load raw github: '+err)
 		throw err 
 	});
 
@@ -82,45 +82,42 @@ async function fetchById(id) {
 async function createNew(event) {
     event.preventDefault();
 
-    // const title = document.getElementById('title').value;
-    // const artist = document.getElementById('artist').value;
-    // const album = document.getElementById('album').value;
-    // const year = document.getElementById('year').value;
-    // const genre = document.getElementById('genre').value;
-    // const duration = document.getElementById('duration').value;
-    // const art = document.getElementById('artwork').files[0];
-    // const song = document.getElementById('song').files[0];
-    // const lyrics = document.getElementById('lyrics').value;
+    const title = document.getElementById('title').value;
+    const artist = document.getElementById('artist').value;
+    const album = document.getElementById('album').value;
+    const year = document.getElementById('year').value;
+    const genre = document.getElementById('genre').value;
+    const duration = document.getElementById('duration').value;
+    const art = document.getElementById('targetA').innerText;
+    const song = document.getElementById('targetS').innerText;
+    const lyrics = document.getElementById('lyrics').value;
 
     const newId = String(Date.now());
     // console.log(typeof newId);
 
-    const formData = new FormData(document.getElementById('form-input'))
-    formData.append('id', newId)
+    // const formData = new FormData(document.getElementById('form-input'))
+    // formData.append('id', newId)
 
-    // const formData = {
-    //     "id": newId,
-    //     "title": title,
-    //     "artist": artist,
-    //     "album": album,
-    //     "year": year,
-    //     "genre": genre,
-    //     "duration": duration,
-    //     "artwork": art,
-    //     "url": song,
-    //     "lyrics": lyrics,
-    // }
+    const formData = {
+        "id": newId,
+        "title": title,
+        "artist": artist,
+        "album": album,
+        "year": year,
+        "genre": genre,
+        "duration": duration,
+        "artwork": art,
+        "url": song,
+        "lyrics": lyrics
+    }
 
-	console.log([...formData]);
-
-    // axios.post(url, formData)
-    //     .then(res => console.log(res))
-    //     .catch(err => console.log(err))
+	console.log(JSON.stringify(formData));
 
     try {
         const response = await fetch(url, {
             method: 'POST',
-            body: formData
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
         });
 
         if (!response.ok) {
