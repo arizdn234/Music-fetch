@@ -6,11 +6,12 @@
 > * Banyak blink ketika menggunakan hot reload (contoh: Live Server).
 
 ## Overview
-Ini adalah aplikasi CRUD ke data bertipe json dengan studi data musik. 
+Ini adalah aplikasi CRUD ke data bertipe json dengan studi data musik. Aplikasi ini merupakan tugas assignment 3 dari materi AJAX dan fetch API pada javascript.
+![demoapp](./public/demo.webm)
 
 ## Requirements
-Dependencies
-* express: 4.18+
+Dependency
+* express: 4.18+z
 * multer: 1.4+
 
 ## Installation
