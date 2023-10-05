@@ -124,8 +124,9 @@ async function createNew(event) {
             throw new Error('Gagal mengirim data ke server.');
         }
 
-		const msg = 'Data berhasil dikirim ke server'
-        console.log(msg);
+		const msg = 'Data berhasil dikirim ke server</br></br>Muat ulang untuk melihat perubahan.'
+        console.log(msg)
+        document.getElementById('form-input').style.display = 'none'
 		msgPopup(msg)
     } catch (error) {
         console.error('Terjadi kesalahan:', error);
@@ -213,7 +214,7 @@ async function updateByID(id) {
             throw new Error('Gagal mengirim permintaan PUT ke server.');
         }
 
-		const msg = `Data dengan ID ${id} telah diubah`
+		const msg = `Data dengan ID ${id} telah diubah</br></br>Muat ulang untuk melihat perubahan.`
         console.log(msg);
 		msgPopup(msg)
 
@@ -235,7 +236,7 @@ async function deleteByID(id) {
             throw new Error('Gagal mengirim permintaan DELETE ke server.');
         }
 
-		const msg = `Data dengan ID ${id} telah dihapus`
+		const msg = `Data dengan ID ${id} telah dihapus</br></br>Muat ulang untuk melihat perubahan.`
         console.log(msg);
         closeModal();
 		msgPopup(msg)
