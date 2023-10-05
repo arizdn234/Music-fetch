@@ -92,7 +92,7 @@ app.get('/songs/:id', (req, res) => {
 // __________________________POST method__________________________
 app.post('/songs', (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         const data = readData()
         // console.log(data.songs);
         data.songs.push(req.body)
@@ -107,7 +107,7 @@ app.post('/songs', (req, res) => {
 // __________________________Image upload__________________________
 app.post('/songs/uploadsartworkUp', imageUpload.single('artworkUp'), (req, res) => {
     try {
-        console.log(req.file);
+        // console.log(req.file);
         return res.status(200).json({ message: 'Upload Gambar berhasil' });
     } catch (error) {
         console.error('Terjadi kesalahan:', error);
@@ -118,7 +118,7 @@ app.post('/songs/uploadsartworkUp', imageUpload.single('artworkUp'), (req, res) 
 // __________________________Song upload__________________________
 app.post('/songs/uploadssongUp', musicUpload.single('songUp'), (req, res) => {
     try {
-        console.log(req.file);
+        // console.log(req.file);
         return res.status(200).json({ message: 'Upload Gambar berhasil' });
     } catch (error) {
         console.error('Terjadi kesalahan:', error);
@@ -126,21 +126,51 @@ app.post('/songs/uploadssongUp', musicUpload.single('songUp'), (req, res) => {
     }
 });
 
+// __________________________PUT/UPDATE By ID method__________________________
+app.put('/songs/:id', (req, res) => {
+    const id = req.params.id
+    const data = readData()
+    const index = data.songs.findIndex(song => song.id === id)
+
+    // console.log(id);
+    // console.log(index);
+    
+    if (index === -1) {
+        return res.status(404).json({ message: 'ID Lagu tidak ditemukan' });
+    }
+    
+    // console.log(req.body.title);
+    // console.log(data.songs[index].title);
+    data.songs[index].title = req.body.title
+    data.songs[index].artist = req.body.artist
+    data.songs[index].album = req.body.album
+    data.songs[index].year = req.body.year
+    data.songs[index].genre = req.body.genre
+    data.songs[index].duration = req.body.duration
+    data.songs[index].artwork = req.body.artwork
+    data.songs[index].url = req.body.url
+    data.songs[index].lyrics = req.body.lyrics
+    // console.log(data.songs[index]);
+
+    writeData(data)
+    res.json({ message: 'Lagu berhasil diubah' });
+})
+
 // __________________________DELETE By ID method__________________________
 app.delete('/songs/:id', (req, res) => {
     const id = req.params.id;
     const data = readData()
     const index = data.songs.findIndex(song => song.id === id);
 
-    // console.log(typeof id);
     // console.log(id);
     // console.log(index);
 
     if (index === -1) {
-        return res.status(404).json({ message: 'Lagu tidak ditemukan' });
+        return res.status(404).json({ message: 'ID Lagu tidak ditemukan' });
     }
 
     data.songs.splice(index, 1);
+
     writeData(data)
     res.json({ message: 'Lagu berhasil dihapus' });
 });
