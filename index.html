@@ -21,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <!-- Axios CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
 
 </head>
 
@@ -46,7 +46,7 @@
             <button class="btn">Submit</button> -->
         </section>
     
-        <div class="overlay hidden"></div>
+        <div class="overlay hidden" title="Meng-klik luar area Pop Up Box akan menutup Pop Up Box🤙"></div>
     </div>
 
     <!-- Web Title -->
@@ -76,15 +76,15 @@
     <div class="cn-container">
         <h1 class="judul">Buat Data Baru</h1>
         <button onclick="hideForm()" id="inputToggle">Buka form input</button>
-        <form id="form-input" style="display: none;" enctype="multipart/form-data">
+        <form id="form-input" style="display: none;">
             <h1>Buat Data Baru</h1>
             <div class="flex">
-				<button class="btn-close" onclick="closeModal()">⨉</button>
+				<button class="btn-close" onclick="closeModalForm(event)">⨉</button>
 			</div>
             <div class="flex-row">
 				<div class="left">
                     <label for="title">Judul lagu</label>
-                    <input type="text" id="title" name="title" placeholder="Masukkan judul lagu"/>
+                    <input autofocus type="text" id="title" name="title" placeholder="Masukkan judul lagu"/>
                     <label for="artist">Nama penyanyi/band</label>
                     <input type="text" id="artist" name="artist" placeholder="Masukkan nama penyanyi/band"/>
                     <label for="album">Album lagu</label>
@@ -99,10 +99,10 @@
                     <input type="text" id="duration" name="duration" placeholder="Masukkan durasi musik --Contoh (3:10)"/>
                     <label for="lyrics">Lirik lagu</label>
                     <input type="text" id="lyrics" name="lyrics" placeholder="Masukkan lirik lagu"/>
-                    <label for="artwork" class="artDis"><i class="fa-solid fa-folder"></i> Pilih file Artwork</label>
-                    <input type="file" id="artwork" name="artwork" accept=".jpg, .jpeg, .png" onchange="displayFileName('artwork', 'artDis')"/>
-                    <label for="song" class="songDis"><i class="fa-solid fa-folder"></i> Pilih file Lagu</label>
-                    <input type="file" id="song" name="song" accept=".mp3, .m4a" onchange="displayFileName('song', 'songDis')"/>
+                    <label for="artwork" class="artDis" id="targetA"><i class="fa-solid fa-folder"></i> Pilih file Artwork</label>
+                    <input type="button" id="artwork" name="artwork" onclick="openDialog('.jpg, .jpeg, .png', 'artworkUp', 'artDis')"/>
+                    <label for="song" class="songDis" id="targetS"><i class="fa-solid fa-folder"></i> Pilih file Lagu</label>
+                    <input type="button" id="song" name="song" onclick="openDialog('.mp3, .m4a', 'songUp', 'songDis')"/>
                 </div>
 			</div>
             <button id="saveNew" type="submit" onclick="createNew(event)">Simpan data</button>
@@ -123,7 +123,8 @@
     <script src="js/modal.js"></script>
 
     <!-- Fetch API -->
-    <script src="js/fetch.js"></script>
+    <!-- <script src="js/fetch.js"></script> -->
+    <script src="js/fetch--local.js"></script>
 
     <!-- Music Player -->
     <script src="js/player.js"></script>
@@ -150,9 +151,3 @@
 </body>
 
 </html>
-
-
-<!-- tweaker = https://drive.google.com/uc?export=view&id= -->
-
-<!-- https://drive.google.com/file/d/1zvfi5HFNPaSfjVyfYMjh1d0GUN28qXuY/view?usp=sharing -->
-<!-- https://drive.google.com/file/d/1IRbMnxSRbNr4FhZMQHGFHW5Ibv7PcBL2/view?usp=drive_link -->
