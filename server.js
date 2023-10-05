@@ -41,10 +41,14 @@ const musicStorage = multer.diskStorage({
 });
 const musicUpload = multer({ storage: musicStorage });
 
+// JSON CRUD
 const readData = () => {
     const jsonData = fs.readFileSync('music--local.json', 'utf-8')
     return JSON.parse(jsonData)
 }
+function writeData(data) {
+    fs.writeFileSync('music--local.json', JSON.stringify(data));
+  }
 
 // __APP ROUTES__
 
@@ -81,13 +85,14 @@ app.get('/songs/:id', (req, res) => {
 });
 
 // POST method
-// app.post('/songs', (req, res) => {
 app.post('/songs', (req, res) => {
     try {
         console.log(req.body);
-        console.log(req.file);
-        console.log(req.files);
-
+        const data = readData()
+        // console.log(data.songs);
+        data.songs.push(req.body)
+        writeData(data);
+        return res.status(200).json({ message: 'Berhasil membuat data' });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Terjadi kesalahan saat membuat data' });
