@@ -8,6 +8,17 @@ const fs = require('fs')
 const app = express()
 const PORT = 3000
 
+// General disk
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, 'uploads');
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname);
+//     }
+// });
+// const upload = multer({ storage: storage });
+
 // Artwork disk
 const imageStorage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -22,7 +33,7 @@ const imageUpload = multer({ storage: imageStorage });
 // Music disk
 const musicStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/music/');
+        cb(null, 'music-data/');
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -31,7 +42,7 @@ const musicStorage = multer.diskStorage({
 const musicUpload = multer({ storage: musicStorage });
 
 const readData = () => {
-    const jsonData = fs.readFileSync('music.json', 'utf-8')
+    const jsonData = fs.readFileSync('music--local.json', 'utf-8')
     return JSON.parse(jsonData)
 }
 
@@ -71,41 +82,40 @@ app.get('/songs/:id', (req, res) => {
 
 // POST method
 // app.post('/songs', (req, res) => {
-app.post('/songs', [imageUpload.single('artwork'), musicUpload.single('song')], (req, res) => {
+app.post('/songs', (req, res) => {
     try {
-        // console.log(req);
-        const { id, title, artist, album, year, genre, duration, lyrics } = req.body;
-      const imageFile = req.file;
-      const musicFile = req.file;
-  
-      if (!imageFile || !musicFile) {
-        return res.status(400).json({ message: 'Harap unggah gambar dan musik' });
-      }
+        console.log(req.body);
+        console.log(req.file);
+        console.log(req.files);
 
-      const newSong = {
-        id: id,
-        title: title,
-        artist: artist,
-        album: album,
-        genre: genre,
-        year: year,
-        duration: duration,
-        artwork: imageFile.filename,
-        url: musicFile.filename,
-        lyrics: lyrics
-      };
-
-    //   console.log(newSong);
-  
-      // Lakukan sesuatu dengan data baru, seperti menyimpannya ke database
-      songs.push(newSong);
-  
-    //   res.status(201).json({ message: 'Data berhasil dibuat', song: newSong });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Terjadi kesalahan saat membuat data' });
+        console.error(error);
+        res.status(500).json({ message: 'Terjadi kesalahan saat membuat data' });
     }
-  });
+});
+
+// Image upload
+app.post('/songs/uploadsartworkUp', imageUpload.single('artworkUp'), (req, res) => {
+    try {
+        console.log(req.file);
+        return res.status(200).json({ message: 'Upload Gambar berhasil' });
+    } catch (error) {
+        console.error('Terjadi kesalahan:', error);
+        res.status(500).json({ message: 'Upload Gagal' });
+    }
+});
+
+// Song upload
+app.post('/songs/uploadssongUp', musicUpload.single('songUp'), (req, res) => {
+    try {
+        console.log(req.file);
+        return res.status(200).json({ message: 'Upload Gambar berhasil' });
+    } catch (error) {
+        console.error('Terjadi kesalahan:', error);
+        res.status(500).json({ message: 'Upload Gagal' });
+    }
+});
+
 
 // DELETE By ID method
 app.delete('/songs/:id', (req, res) => {
