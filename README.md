@@ -7,11 +7,14 @@
 
 ## Overview
 Ini adalah aplikasi CRUD ke data bertipe json dengan studi data musik. Aplikasi ini merupakan tugas assignment 3 dari materi AJAX dan fetch API pada javascript.
-![demoapp](./public/demo.webm)
+- Demo
+![demo](./public/demo.gif)
+- Lighthouse perfomance report
+![performance](./public/performance.png)
 
 ## Requirements
 Dependency
-* express: 4.18+z
+* express: 4.18+
 * multer: 1.4+
 
 ## Installation
