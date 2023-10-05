@@ -189,6 +189,7 @@ async function updateByID(id) {
     const lyrics = document.getElementById('lyrics').value;
 
     const jsonData = {
+        id: id,
         title: title,
         artist: artist,
         album: album,
