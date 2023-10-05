@@ -214,7 +214,7 @@ function openDialog(type, name, dis) {
 	
 	const format = `
 	<form action="/song" enctype="multipart/form-data" id="upFileForm">
-		<label for="${name}" class="${dis}">Pilih file ${name}</label>
+		<label for="${name}" class="${dis}"><i class="fa-solid fa-folder"></i> Pilih file ${name}</label>
 		<input type="file" name="${name}" id="${name}" accept="${type}" onchange="displayFileName('${name}', '${dis}')">
 		<button type="submit" onclick="upFile('${name}', event)">Upload</button>
 		<button onclick="hideDialog(event)">Batal</button>
