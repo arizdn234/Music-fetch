@@ -70,7 +70,7 @@ function editData(id) {
 			<div class="flex">
 				<button class="btn-close" onclick="closeModal()">⨉</button>
 			</div>
-			<h2 contenteditable="true" spellcheck="false" id="title" value="${data.title}">${data.title}</h2>
+			<h2 autofocus contenteditable="true" spellcheck="false" id="title" value="${data.title}">${data.title}</h2>
 			<div class="flex-row">
 				<div class="left">
 					<label for="artist">Nama penyanyi/band</label>
@@ -182,6 +182,13 @@ function closeModal() {
 	overlay.classList.add("hidden");
 	document.getElementById('form-input').style.display = 'none'
 }
+function closeModalForm(event) {
+	event.preventDefault()
+	
+	modal.classList.add("hidden");
+	overlay.classList.add("hidden");
+	document.getElementById('form-input').style.display = 'none'
+}
 
 // __________________________Close Modal with outer area of Modal__________________________
 overlay.addEventListener("click", () => {
@@ -200,4 +207,28 @@ function hideContent() {
 		document.getElementById('hider').innerHTML = 'Show &darr;' 
 		x.style.display = "none";
 	}
+}
+
+function openDialog(type, name, dis) {
+	// alert(`upload type ${type}`)
+	
+	const format = `
+	<form action="/song" enctype="multipart/form-data" id="upFileForm">
+		<label for="${name}" class="${dis}">Pilih file ${name}</label>
+		<input type="file" name="${name}" id="${name}" accept="${type}" onchange="displayFileName('${name}', '${dis}')">
+		<button type="submit" onclick="upFile('${name}', event)">Upload</button>
+		<button onclick="hideDialog(event)">Batal</button>
+	</form>
+	`
+	modal.innerHTML = format
+	modal.style.width = '384px'
+	modal.classList.remove("hidden");
+	overlay.classList.remove("hidden");
+	document.getElementById('form-input').style.display = 'none'
+}
+
+function hideDialog(event) {
+	event.preventDefault()
+	document.getElementById('upFileForm').style.display = 'none'
+	document.getElementById('form-input').style.display = 'flex'
 }
