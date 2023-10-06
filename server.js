@@ -134,11 +134,11 @@ app.put('/songs/:id', (req, res) => {
 
     // console.log(id);
     // console.log(index);
-    
+
     if (index === -1) {
         return res.status(404).json({ message: 'ID Lagu tidak ditemukan' });
     }
-    
+
     // console.log(req.body.title);
     // console.log(data.songs[index].title);
     data.songs[index].title = req.body.title
@@ -169,6 +169,24 @@ app.delete('/songs/:id', (req, res) => {
         return res.status(404).json({ message: 'ID Lagu tidak ditemukan' });
     }
 
+    // console.log(data.songs[index].artwork);
+    // console.log(data.songs[index].url);
+
+    const imgPath = `public/${data.songs[index].artwork}`
+    const songPath = `public/${data.songs[index].url}`
+
+    fs.unlink(imgPath, (err) => {
+        if (err) {
+            console.error(err);
+        }
+    })
+
+    fs.unlink(songPath, (err) => {
+        if (err) {
+            console.error(err);
+        }
+    })
+
     data.songs.splice(index, 1);
 
     writeData(data)
@@ -176,4 +194,4 @@ app.delete('/songs/:id', (req, res) => {
 });
 
 // __________________________Server port__________________________
-app.listen(PORT, () => console.log(`Server run on port ${PORT}\n\nhttp://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`______~Horrayy \\ (^_^) /\n\n______~Server run on port ${PORT}\n\n______~http://localhost:${PORT}\n\n`))
