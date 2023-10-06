@@ -8,6 +8,7 @@ function detailData(id) {
 	fetchById(id)
 		.then((data) => {
 			// console.log(data);
+			modal.style.display = 'flex'
 			const format = `
 				<h1>Detail</h1>
 				<div class="flex">
@@ -65,6 +66,7 @@ function editData(id) {
 	fetchById(id)
 	.then((data) => {
 		// console.log(data);\
+		modal.style.display = 'flex'
 		const format = `
 			<h1>Edit Data</h1>
 			<div class="flex">
@@ -110,6 +112,7 @@ function deleteData(id) {
 	fetchById(id)
 	.then((data) => {
 		// console.log(data);
+		modal.style.display = 'flex'
 		const format = `
 			<div class="flex">
 				<button class="btn-close" onclick="closeModal()">⨉</button>
@@ -131,6 +134,7 @@ function deleteData(id) {
 
 // __________________________Message pop up__________________________
 function msgPopup(msg) {
+	modal.style.display = 'flex'
 	const format = `
 		<div class="flex">
 			<button class="btn-close" onclick="closeModal()">⨉</button>
@@ -179,6 +183,7 @@ function displayFileName(nameID, target) {
 // __________________________Modal Close Button Function__________________________
 function closeModal() {
 	modal.classList.add("hidden");
+	modal.style.display = 'none'
 	overlay.classList.add("hidden");
 	document.getElementById('form-input').style.display = 'none'
 }
@@ -186,12 +191,14 @@ function closeModalForm(event) {
 	event.preventDefault()
 	
 	modal.classList.add("hidden");
+	modal.style.display = 'none'
 	overlay.classList.add("hidden");
 	document.getElementById('form-input').style.display = 'none'
 }
 
 // __________________________Close Modal with outer area of Modal__________________________
 overlay.addEventListener("click", () => {
+	modal.style.display = 'none'
 	modal.classList.add("hidden");
 	overlay.classList.add("hidden");
 	document.getElementById('form-input').style.display = 'none'
