@@ -35,6 +35,54 @@
       "url": "music-data/Without Me.mp3",
       "id": "6",
       "lyrics": "Found you when your heart was broke..."
+    },
+    {
+      "id": "1696595700608",
+      "title": "Untuk Perempuan yang Sedang di Pelukan",
+      "artist": "Payung Teduh",
+      "album": "Payung Teduh",
+      "year": "2010",
+      "genre": "Indonesian Indie",
+      "duration": "5:43",
+      "artwork": "album-arts/menujusenjadd.jpg",
+      "url": "music-data/Untuk Perempuan Yang Sedang Di Pelukan.mp3",
+      "lyrics": "Tak terasa gelap pun jatuh Di ujung malam menuju pagi..."
+    },
+    {
+      "id": "1696597715929",
+      "title": "Unstoppable",
+      "artist": "Sia",
+      "album": "This Is Acting",
+      "year": "2016",
+      "genre": "Alternative/Indie",
+      "duration": "3:47",
+      "artwork": "album-arts/Unstoppable.jpeg",
+      "url": "music-data/Unstoppable.mp3",
+      "lyrics": "All smiles, I know what it takes to fool this town I'll do it 'til the sun goes down..."
+    },
+    {
+      "id": "1696597967649",
+      "title": "Chop Suey!",
+      "artist": "System of a Down",
+      "album": "Toxicity",
+      "year": "2001",
+      "genre": "Nu metal",
+      "duration": "3:31",
+      "artwork": "album-arts/chop-suey.jpg",
+      "url": "music-data/Chop Suey.m4a",
+      "lyrics": "Wake up (wake up) Grab a brush and put a little make-up..."
+    },
+    {
+      "id": "1696598998282",
+      "title": "Faint",
+      "artist": "Linkin Park",
+      "album": "Meteora",
+      "year": "2003",
+      "genre": "Alternative/Indie",
+      "duration": "2:43",
+      "artwork": "album-arts/faint.jpg",
+      "url": "music-data/Faint.mp3",
+      "lyrics": "I am a little bit of loneliness, a little bit of disregard Handful of complaints..."
     }
   ]
 }
