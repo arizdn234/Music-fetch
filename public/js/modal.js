@@ -209,9 +209,11 @@ function hideContent() {
 	}
 }
 
+// __________________________Open Dialog Function__________________________
 function openDialog(type, name, dis) {
 	// alert(`upload type ${type}`)
 	
+	modal.style.display = 'flex'
 	const format = `
 	<form action="/song" enctype="multipart/form-data" id="upFileForm">
 		<label for="${name}" class="${dis}"><i class="fa-solid fa-folder"></i> Pilih file ${name}</label>
@@ -229,6 +231,7 @@ function openDialog(type, name, dis) {
 
 function hideDialog(event) {
 	event.preventDefault()
+	modal.style.display = 'none'
 	document.getElementById('upFileForm').style.display = 'none'
 	document.getElementById('form-input').style.display = 'flex'
 }
