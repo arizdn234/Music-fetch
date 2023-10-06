@@ -133,6 +133,7 @@ async function createNew(event) {
     }
 }
 
+// __________________________Upload File Function__________________________
 async function upFile(name, event) {
     event.preventDefault();
   
@@ -163,7 +164,8 @@ async function upFile(name, event) {
 		const msg = `Upload ${name} berhasil.`
         console.log(msg);
         
-        document.getElementById('upFileForm').style.display = 'none'
+        alert('Selamad.. File anda berhasil diupload.')
+        document.querySelector(".modal").style.display = 'none'
         document.getElementById('form-input').style.display = 'flex'
         if (name === 'artworkUp') {
             document.querySelector(`#targetA`).innerHTML = `album-arts/${selectedFile.name}`
