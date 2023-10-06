@@ -29,10 +29,24 @@ fetch(url)
 				
 		for (let i = 0; i < data.songs.length; i++) {
 			// console.log(data.songs[i].title);
+
+            let maxTitle = ``
+            if (data.songs[i].title.length > 15) {
+                for (let j = 0; j < 15; j++) {
+                    maxTitle+=data.songs[i].title[j]
+                }
+                maxTitle+='...'
+                // console.log(maxTitle);
+                // console.log(data.songs[i].title.length, data.songs[i].title);
+            } else {
+                maxTitle = data.songs[i].title
+            }
+            // console.log(maxTitle, data.songs[i].title);
+            
 			const format = `
 				<div class="card">
 					<img src="${data.songs[i].artwork}" id="${data.songs[i].id}ss"/>
-					<h2>${data.songs[i].title}</h2>
+					<h2>${maxTitle}</h2>
 					<p>${data.songs[i].artist}</p>
                     <audio id="${data.songs[i].id}">
                         <source src="${data.songs[i].url}" type="audio/mpeg">
