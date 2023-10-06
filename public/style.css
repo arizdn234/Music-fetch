@@ -67,17 +67,18 @@ body {
 .card img {
     max-width: 100%;
     display: block;
+    overflow: hidden;
 }
 
 .card h2 {
     position: absolute;
-    top: 82%;
+    bottom: 4%;
     background: rgba(0, 0, 0, 0.5);
     font-size: 35px;
     border-radius: 0 0 22px 0;
     padding: 10px;
     border-bottom: 1px solid aqua;
-    width: fit-content;
+    max-width: 20rem;
     margin: 0 auto;
     font-family: 'Sedgwick Ave Display', cursive;
     color: white;
@@ -85,7 +86,7 @@ body {
 
 .card p {
     position: absolute;
-    top: 70%;
+    bottom: 20%;
     background: rgba(0, 0, 0, 0.5);
     font-size: 24px;
     border-radius: 0 0 12px 0;
