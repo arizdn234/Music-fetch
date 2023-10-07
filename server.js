@@ -1,6 +1,7 @@
 // __________________________IMPORTIR__________________________
 const express = require('express')
 const multer = require('multer')
+const path = require('path')
 const fs = require('fs')
 
 // __________________________APP INIT__________________________
@@ -51,7 +52,7 @@ function writeData(data) {
 }
 
 // ____________________________APP INIT____________________________
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json())
 
 // __________________________Add Access Control Allow Origin headers__________________________
