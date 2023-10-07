@@ -32,3 +32,7 @@ Dependency
 ```
 ### Port quick access
 [http://localhost:3000](http://localhost:3000)
+
+## Deployment
+aplikasi dideploy menggunakan vercel.. tapi dari repo [https://github.com/zydan3/Assignment3-arizidan-MSIB](https://github.com/zydan3/Assignment3-arizidan-MSIB) yang fork dari repo ini
+* akses: [https://assignment3-arizidan-msib-8554.vercel.app/](https://assignment3-arizidan-msib-8554.vercel.app/)
