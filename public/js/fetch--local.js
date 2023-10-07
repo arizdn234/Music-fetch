@@ -52,7 +52,7 @@ fetch(url)
                         <source src="${data.songs[i].url}" type="audio/mpeg">
                     </audio>
 					<button class="detail-button">
-						<span onclick="detailData(${data.songs[i].id})" title="Lihat detail"><i class="fa-solid fa-eye"></i></span>
+						<span onclick="detailData(${data.songs[i].id})" title="Lihat detail"><i class="fa-solid fa-circle-info"></i></span>
 						<span onclick="editData(${data.songs[i].id})" title="Edit data"><i class="fa-solid fa-pencil"></i></span>
 						<span onclick="deleteData(${data.songs[i].id})" title="Hapus data"><i class="fa-solid fa-trash"></i></span>
 					</button>
